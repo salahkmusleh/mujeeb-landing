@@ -460,6 +460,10 @@ input, textarea, select { font-family: inherit; }
 }
 
 /* Hero Visual — Dashboard Mockup */
+.hero-visual {
+  position: relative;
+  z-index: 1;
+}
 
 .hero-mockup {
   background: rgba(255,255,255,0.03);
