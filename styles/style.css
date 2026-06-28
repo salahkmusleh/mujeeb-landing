@@ -1411,16 +1411,17 @@ section + section { margin-top: 0; }
   animation: floatNotif 4s ease-in-out infinite;
   min-width: 220px;
   max-width: 280px;
-  /* Sits just above the mockup's top-right corner, fully inside hero-visual */
-  top: -18px;
-  left: 12px;
+  /* Hang off the right edge of the mockup column, into the inter-column gap */
+  top: 80px;
+  right: -20px;
+  left: auto;
 }
 
 .hero-notif-2 {
   top: auto;
-  bottom: 24px;
-  left: 12px;
-  right: auto;
+  bottom: 120px;
+  right: -20px;
+  left: auto;
   animation-delay: -2s;
   animation-duration: 5s;
 }
