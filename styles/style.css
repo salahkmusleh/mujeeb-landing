@@ -1813,6 +1813,8 @@ section + section { margin-top: 0; }
 
   /* Demo */
   .phone-frame { width: 260px; height: 520px; }
+  .phone-notch { display: none; }
+  .wa-app { top: 0; }
   .demo-stats { gap: 20px; flex-wrap: wrap; justify-content: center; }
   .demo-stat strong { font-size: 1.4rem; }
   .wa-name { font-size: 0.76rem; }
