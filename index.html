@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>مُجيب — أتمتة الأعمال بالذكاء الاصطناعي</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
   <meta name="description" content="مُجيب — نُمكّن الشركات العربية من أتمتة عملياتها باستخدام الذكاء الاصطناعي. روبوتات محادثة، أتمتة سير العمل، وتكامل ذكي مع أنظمتك." />
 
   <!-- Fonts -->
@@ -20,8 +21,14 @@
 </head>
 <body>
 
+  <!-- ========== SCROLL PROGRESS ========== -->
+  <div class="scroll-progress-bar" id="scrollProgress"></div>
+
   <!-- ========== CANVAS BACKGROUND ========== -->
   <canvas id="bg-canvas"></canvas>
+
+  <!-- ========== NOISE OVERLAY ========== -->
+  <div class="noise-overlay"></div>
 
   <!-- ========== CURSOR ========== -->
   <div class="cursor-dot"></div>
@@ -118,6 +125,25 @@
 
     <!-- Hero Visual -->
     <div class="hero-visual">
+      <!-- Floating notification -->
+      <div class="hero-notif">
+        <div class="notif-avatar">🤖</div>
+        <div class="notif-text">
+          <strong>محادثة جديدة تحوّلت!</strong>
+          <span>عميل اشترى بعد 47 ثانية من الرد</span>
+        </div>
+        <div class="notif-badge">+1</div>
+      </div>
+
+      <!-- Second floating card -->
+      <div class="hero-notif hero-notif-2">
+        <div class="notif-avatar">⚡</div>
+        <div class="notif-text">
+          <strong>تم توفير 3.4 ساعة</strong>
+          <span>أتمتة معالجة 28 طلب تلقائياً</span>
+        </div>
+      </div>
+
       <div class="hero-mockup">
         <div class="mockup-header">
           <div class="mockup-dots">
@@ -179,6 +205,28 @@
       <span>مرّر للأسفل</span>
     </div>
   </section>
+
+  <!-- ========== MARQUEE STRIP ========== -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span>روبوتات محادثة ذكية</span><span class="marquee-dot">✦</span>
+      <span>أتمتة سير العمل</span><span class="marquee-dot">✦</span>
+      <span>تكامل WhatsApp</span><span class="marquee-dot">✦</span>
+      <span>دعم عربي كامل</span><span class="marquee-dot">✦</span>
+      <span>تحليلات متقدمة</span><span class="marquee-dot">✦</span>
+      <span>تسليم في أسبوعين</span><span class="marquee-dot">✦</span>
+      <span>ضمان استرداد المال</span><span class="marquee-dot">✦</span>
+      <span>AI Automation</span><span class="marquee-dot">✦</span>
+      <span>روبوتات محادثة ذكية</span><span class="marquee-dot">✦</span>
+      <span>أتمتة سير العمل</span><span class="marquee-dot">✦</span>
+      <span>تكامل WhatsApp</span><span class="marquee-dot">✦</span>
+      <span>دعم عربي كامل</span><span class="marquee-dot">✦</span>
+      <span>تحليلات متقدمة</span><span class="marquee-dot">✦</span>
+      <span>تسليم في أسبوعين</span><span class="marquee-dot">✦</span>
+      <span>ضمان استرداد المال</span><span class="marquee-dot">✦</span>
+      <span>AI Automation</span><span class="marquee-dot">✦</span>
+    </div>
+  </div>
 
   <!-- ========== STATS ========== -->
   <section class="stats-section" id="stats">

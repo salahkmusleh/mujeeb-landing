@@ -19,6 +19,16 @@
   });
 })();
 
+/* ---- SCROLL PROGRESS BAR ---- */
+(function initScrollProgress() {
+  const bar = document.getElementById('scrollProgress');
+  if (!bar) return;
+  window.addEventListener('scroll', () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = ((window.scrollY / max) * 100).toFixed(2) + '%';
+  }, { passive: true });
+})();
+
 /* ---- GSAP SETUP ---- */
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
