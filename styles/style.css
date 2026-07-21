@@ -27,7 +27,7 @@
   --text-faint:    rgba(240,244,242,0.3);
 
   --font-ar:       'Tajawal', sans-serif;
-  --font-en:       'Inter', sans-serif;
+  --font-en:       'Inter', 'Tajawal', sans-serif;
 
   --radius-sm:     8px;
   --radius-md:     16px;
@@ -40,7 +40,7 @@
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
 
 body {
   font-family: var(--font-ar);
@@ -49,6 +49,7 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
   direction: rtl;
+  max-width: 100%;
 }
 
 ::selection { background: var(--primary); color: #fff; }
@@ -569,10 +570,10 @@ input, textarea, select { font-family: inherit; }
 .services-section   { background: rgba(255,255,255,0.01); }
 .demo-section       { background: transparent; }
 .why-section        { background: rgba(27,77,62,0.03); }
-.process-section    { background: transparent; }
-.problem-section     { background: rgba(197,160,89,0.02); }
+.process-section    { background: rgba(255,255,255,0.01); }
+.problem-section    { background: rgba(197,160,89,0.02); }
 .pricing-section    { background: rgba(27,77,62,0.03); }
-.contact-section    { background: transparent; }
+.contact-section    { background: rgba(255,255,255,0.01); }
 
 /* ---------- STATS ---------- */
 .stats-section {
@@ -709,12 +710,14 @@ input, textarea, select { font-family: inherit; }
 .service-link {
   display: inline-flex;
   align-items: center;
+  gap: 8px;
   color: var(--secondary);
   font-size: 0.9rem;
   font-weight: 600;
   transition: gap 0.2s, color 0.2s;
 }
-.service-link:hover { color: #e8c47a; letter-spacing: 0.02em; }
+.service-link svg { flex-shrink: 0; transition: transform 0.2s; }
+.service-link:hover { color: #e8c47a; gap: 12px; }
 
 /* ---------- DEMO / WHATSAPP ---------- */
 .demo-section { overflow: hidden; }
@@ -1073,8 +1076,6 @@ input, textarea, select { font-family: inherit; }
 .why-grid-4 .why-icon { margin-bottom: 0; color: #fff; }
 
 /* ---------- PROBLEM SECTION ---------- */
-.problem-section { background: transparent; }
-
 .problem-layout {
   display: grid;
   grid-template-columns: 1.3fr 1fr;
@@ -1182,8 +1183,6 @@ input, textarea, select { font-family: inherit; }
 .btn-cta-ghost:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
 
 /* ---------- PROCESS ---------- */
-.process-section { background: rgba(255,255,255,0.01); }
-
 .process-steps {
   max-width: 720px;
   margin: 0 auto;
@@ -1237,12 +1236,11 @@ input, textarea, select { font-family: inherit; }
 
 .step-content h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
 .step-content p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 12px; }
-.step-duration { font-size: 0.78rem; color: var(--secondary); font-weight: 600; }
+.step-duration { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--secondary); font-weight: 600; }
+.step-duration svg { flex-shrink: 0; }
 
 
 /* ---------- CONTACT / FORM ---------- */
-.contact-section { background: rgba(255,255,255,0.01); }
-
 .contact-bg-glow {
   position: absolute;
   width: 600px; height: 600px;
