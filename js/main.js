@@ -5,10 +5,13 @@
 
 /* ---- PAGE LOADER ---- */
 (function injectLoader() {
+  let savedLang = 'ar';
+  try { savedLang = localStorage.getItem('mujeeb_lang') || 'ar'; } catch (e) {}
+  const wordmark = savedLang === 'en' ? 'Mujeeb' : 'مُجيب';
   const loader = document.createElement('div');
   loader.className = 'page-loader';
   loader.innerHTML = `
-    <div class="loader-logo">مُجيب<span style="color:#C5A059">.</span></div>
+    <div class="loader-logo">${wordmark}<span style="color:#C5A059">.</span></div>
     <div class="loader-bar"><div class="loader-fill"></div></div>
   `;
   document.body.prepend(loader);
@@ -195,6 +198,8 @@ window.addEventListener('load', () => {
 /* ---- COUNTER ANIMATION ---- */
 (function initCounters() {
   const counters = document.querySelectorAll('.counter');
+  const locale = () => (window.MujeebLang && window.MujeebLang.current === 'en') ? 'en-US' : 'ar-EG';
+  const fmt = n => Math.floor(n).toLocaleString(locale());
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -208,8 +213,8 @@ window.addEventListener('load', () => {
 
       const timer = setInterval(() => {
         cur = Math.min(cur + inc, end);
-        el.textContent = Math.floor(cur).toLocaleString('ar-EG');
-        if (cur >= end) clearInterval(timer);
+        el.textContent = fmt(cur);
+        if (cur >= end) { el.dataset.done = '1'; clearInterval(timer); }
       }, step);
 
       observer.unobserve(el);
@@ -217,6 +222,15 @@ window.addEventListener('load', () => {
   }, { threshold: 0.5 });
 
   counters.forEach(c => observer.observe(c));
+
+  // Re-render finished counters in the active locale on language switch
+  if (window.MujeebLang) {
+    window.MujeebLang.onChange(() => {
+      counters.forEach(el => {
+        if (el.dataset.done === '1') el.textContent = fmt(parseInt(el.dataset.target, 10));
+      });
+    });
+  }
 })();
 
 /* ---- MAGNETIC BUTTONS ---- */
@@ -280,36 +294,69 @@ window.addEventListener('load', () => {
 
   const scenarios = {
     sales: [
-      { from: 'bot',  text: 'مرحباً! أنا مساعد متجر الأناقة. كيف أقدر أساعدك اليوم؟ 😊', delay: 800 },
-      { from: 'user', text: 'في عندكم تشكيلة عبايات جديدة؟', delay: 2000 },
-      { from: 'bot',  text: 'بالتأكيد! وصلتنا هذا الأسبوع أكثر من 40 موديل جديد للعبايات 🎉\n\nأي فئة تفضلين؟\n• عبايات كاجوال\n• عبايات سهرة\n• عبايات رسمية', delay: 3500 },
-      { from: 'user', text: 'عبايات سهرة', delay: 5500 },
-      { from: 'bot',  text: 'ممتاز! لدينا 12 موديل للسهرة بأسعار تبدأ من 89 دينار.\n\nهل تودين رؤية الكتالوج كاملاً أو تحديد مقاسك أولاً لأعرض المتوفر منها؟', delay: 7000 },
+      { from: 'bot',  delay: 800,
+        ar: 'مرحباً! أنا مساعد متجر الأناقة. كيف أقدر أساعدك اليوم؟ 😊',
+        en: "Hi! I'm Anaqa Store's assistant. How can I help you today? 😊" },
+      { from: 'user', delay: 2000,
+        ar: 'في عندكم تشكيلة عبايات جديدة؟',
+        en: 'Do you have a new abaya collection?' },
+      { from: 'bot',  delay: 3500,
+        ar: 'بالتأكيد! وصلتنا هذا الأسبوع أكثر من 40 موديل جديد للعبايات 🎉\n\nأي فئة تفضلين؟\n• عبايات كاجوال\n• عبايات سهرة\n• عبايات رسمية',
+        en: 'Absolutely! Over 40 new abaya designs arrived this week 🎉\n\nWhich category do you prefer?\n• Casual abayas\n• Evening abayas\n• Formal abayas' },
+      { from: 'user', delay: 5500,
+        ar: 'عبايات سهرة',
+        en: 'Evening abayas' },
+      { from: 'bot',  delay: 7000,
+        ar: 'ممتاز! لدينا 12 موديل للسهرة بأسعار تبدأ من 89 دينار.\n\nهل تودين رؤية الكتالوج كاملاً أو تحديد مقاسك أولاً لأعرض المتوفر منها؟',
+        en: "Great! We have 12 evening designs starting from 89 JOD.\n\nWould you like to see the full catalog, or set your size first so I show what's available?" },
     ],
     support: [
-      { from: 'bot',  text: 'أهلاً! أنا مساعد الدعم. ما المشكلة التي تواجهها؟', delay: 800 },
-      { from: 'user', text: 'طلبيتي ما وصلت وأنا دفعت قبل 5 أيام', delay: 2000 },
-      { from: 'bot',  text: 'آسف جداً على هذا التأخير! 🙏\n\nأعطني رقم الطلبية وسأتابعها فوراً معك.', delay: 3200 },
-      { from: 'user', text: 'رقم الطلبية: ORD-2024-4872', delay: 5000 },
-      { from: 'bot',  text: '✅ وجدت طلبيتك!\n\nالحالة: في طريقها إليك 🚚\nموعد التسليم المتوقع: غداً بين 10 صباحاً - 2 ظهراً\n\nهل تريد إشعاراً فورياً لحظة وصولها؟', delay: 6500 },
+      { from: 'bot',  delay: 800,
+        ar: 'أهلاً! أنا مساعد الدعم. ما المشكلة التي تواجهها؟',
+        en: "Hello! I'm the support assistant. What issue are you facing?" },
+      { from: 'user', delay: 2000,
+        ar: 'طلبيتي ما وصلت وأنا دفعت قبل 5 أيام',
+        en: "My order hasn't arrived and I paid 5 days ago" },
+      { from: 'bot',  delay: 3200,
+        ar: 'آسف جداً على هذا التأخير! 🙏\n\nأعطني رقم الطلبية وسأتابعها فوراً معك.',
+        en: "I'm so sorry for the delay! 🙏\n\nShare your order number and I'll track it for you right away." },
+      { from: 'user', delay: 5000,
+        ar: 'رقم الطلبية: ORD-2024-4872',
+        en: 'Order number: ORD-2024-4872' },
+      { from: 'bot',  delay: 6500,
+        ar: '✅ وجدت طلبيتك!\n\nالحالة: في طريقها إليك 🚚\nموعد التسليم المتوقع: غداً بين 10 صباحاً - 2 ظهراً\n\nهل تريد إشعاراً فورياً لحظة وصولها؟',
+        en: '✅ Found your order!\n\nStatus: on its way 🚚\nExpected delivery: tomorrow, 10 AM - 2 PM\n\nWant an instant notification the moment it arrives?' },
     ],
     booking: [
-      { from: 'bot',  text: 'أهلاً بك! يسعدني مساعدتك في حجز موعد. 📅\n\nأي خدمة تريد الحجز لها؟', delay: 800 },
-      { from: 'user', text: 'استشارة تسويقية', delay: 2200 },
-      { from: 'bot',  text: 'ممتاز! استشارات التسويق متاحة مع خبرائنا.\n\nأيام متاحة هذا الأسبوع:\n• الثلاثاء 9 يوليو\n• الأربعاء 10 يوليو\n• الخميس 11 يوليو\n\nأي يوم يناسبك؟', delay: 3800 },
-      { from: 'user', text: 'الأربعاء', delay: 5500 },
-      { from: 'bot',  text: '✅ تم التأكيد!\n\n📅 الأربعاء 10 يوليو\n🕙 الساعة 10:00 صباحاً\n👤 مع م. سارة الحامد\n\nسيصلك تذكير قبل ساعة من الموعد. هل تريد إضافة للتقويم؟', delay: 7200 },
+      { from: 'bot',  delay: 800,
+        ar: 'أهلاً بك! يسعدني مساعدتك في حجز موعد. 📅\n\nأي خدمة تريد الحجز لها؟',
+        en: "Welcome! I'd be happy to help you book an appointment. 📅\n\nWhich service would you like to book?" },
+      { from: 'user', delay: 2200,
+        ar: 'استشارة تسويقية',
+        en: 'Marketing consultation' },
+      { from: 'bot',  delay: 3800,
+        ar: 'ممتاز! استشارات التسويق متاحة مع خبرائنا.\n\nأيام متاحة هذا الأسبوع:\n• الثلاثاء 9 يوليو\n• الأربعاء 10 يوليو\n• الخميس 11 يوليو\n\nأي يوم يناسبك؟',
+        en: 'Great! Marketing consultations are available with our experts.\n\nOpen days this week:\n• Tuesday, July 9\n• Wednesday, July 10\n• Thursday, July 11\n\nWhich day works for you?' },
+      { from: 'user', delay: 5500,
+        ar: 'الأربعاء',
+        en: 'Wednesday' },
+      { from: 'bot',  delay: 7200,
+        ar: '✅ تم التأكيد!\n\n📅 الأربعاء 10 يوليو\n🕙 الساعة 10:00 صباحاً\n👤 مع م. سارة الحامد\n\nسيصلك تذكير قبل ساعة من الموعد. هل تريد إضافة للتقويم؟',
+        en: '✅ Confirmed!\n\n📅 Wednesday, July 10\n🕙 10:00 AM\n👤 With Eng. Sara Al-Hamed\n\nYou\'ll get a reminder an hour before. Add it to your calendar?' },
     ]
   };
 
+  const lang = () => (window.MujeebLang ? window.MujeebLang.current : 'ar');
+
   let currentScenario = 'sales';
   let isRunning = false;
+  let hasStarted = false;
   let timeouts = [];
 
   function clearTimeouts() { timeouts.forEach(clearTimeout); timeouts = []; }
 
   function now() {
-    return new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+    return new Date().toLocaleTimeString(lang() === 'en' ? 'en-US' : 'ar-EG', { hour: '2-digit', minute: '2-digit' });
   }
 
   function addTypingIndicator() {
@@ -344,6 +391,7 @@ window.addEventListener('load', () => {
   function runScenario(key) {
     if (isRunning) return;
     isRunning = true;
+    hasStarted = true;
     clearTimeouts();
 
     // Clear messages except date divider
@@ -363,7 +411,7 @@ window.addEventListener('load', () => {
       }
 
       const t = setTimeout(() => {
-        addMessage(msg.from, msg.text);
+        addMessage(msg.from, msg[lang()] || msg.ar);
         if (i === msgs.length - 1) {
           isRunning = false;
           // Loop after a pause
@@ -386,6 +434,16 @@ window.addEventListener('load', () => {
       runScenario(currentScenario);
     });
   });
+
+  // Restart the conversation in the new language when toggled
+  if (window.MujeebLang) {
+    window.MujeebLang.onChange(() => {
+      if (!hasStarted) return;
+      isRunning = false;
+      clearTimeouts();
+      runScenario(currentScenario);
+    });
+  }
 
   // Start when in view
   const observer = new IntersectionObserver(entries => {
@@ -451,7 +509,7 @@ window.addEventListener('load', () => {
 
     // Loading state
     submitBtn.disabled = true;
-    submitTxt.textContent = 'جارٍ الإرسال...';
+    submitTxt.textContent = (window.MujeebLang && window.MujeebLang.t('form.sending')) || 'جارٍ الإرسال...';
     submitBtn.style.opacity = '0.7';
 
     // Build form body for Google Forms

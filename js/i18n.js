@@ -144,11 +144,15 @@
     'mq5': 'Advanced Analytics', 'mq6': 'Two-week Delivery', 'mq7': 'Money-back Guarantee', 'mq8': 'AI Automation',
 
     // Document
-    'meta.title': 'Mujeeb — AI Business Automation'
+    'meta.title': 'Mujeeb — AI Business Automation',
+
+    // Runtime (used by main.js)
+    'form.sending': 'Sending...'
   };
 
   const AR_TITLE = document.title;
   const STORAGE_KEY = 'mujeeb_lang';
+  const listeners = [];
 
   function apply(lang) {
     const en = lang === 'en';
@@ -180,11 +184,21 @@
     });
 
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+
+    listeners.forEach(fn => { try { fn(lang); } catch (e) {} });
   }
 
   function current() {
     try { return localStorage.getItem(STORAGE_KEY) || 'ar'; } catch (e) { return 'ar'; }
   }
+
+  // Public API for other scripts (e.g. the WhatsApp demo in main.js)
+  window.MujeebLang = {
+    get current() { return document.documentElement.lang === 'en' ? 'en' : 'ar'; },
+    t: function (key) { return this.current === 'en' && EN[key] != null ? EN[key] : null; },
+    onChange: function (fn) { if (typeof fn === 'function') listeners.push(fn); },
+    set: function (lang) { apply(lang); }
+  };
 
   function init() {
     apply(current());
