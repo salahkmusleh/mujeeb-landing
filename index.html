@@ -41,15 +41,19 @@
         <img src="assets/logo.png" alt="مجيب" class="nav-logo-img" />
       </a>
       <ul class="nav-links">
-        <li><a href="#services">الخدمات</a></li>
-        <li><a href="#demo">تجربة مباشرة</a></li>
-        <li><a href="#why-us">لماذا نحن</a></li>
-        <li><a href="#process">آلية العمل</a></li>
-        <li><a href="#pricing">الأسعار</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
+        <li><a href="#services" data-i18n="nav.services">الخدمات</a></li>
+        <li><a href="#demo" data-i18n="nav.demo">تجربة مباشرة</a></li>
+        <li><a href="#why-us" data-i18n="nav.why">لماذا نحن</a></li>
+        <li><a href="#process" data-i18n="nav.process">آلية العمل</a></li>
+        <li><a href="#pricing" data-i18n="nav.pricing">الأسعار</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">تواصل معنا</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="#contact" class="btn btn-primary nav-cta">ابدأ الآن</a>
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          <span class="lang-toggle-text">EN</span>
+        </button>
+        <a href="#contact" class="btn btn-primary nav-cta" data-i18n="cta.start">ابدأ الآن</a>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
           <span></span><span></span><span></span>
         </button>
@@ -58,13 +62,17 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
       <ul>
-        <li><a href="#services">الخدمات</a></li>
-        <li><a href="#demo">تجربة مباشرة</a></li>
-        <li><a href="#why-us">لماذا نحن</a></li>
-        <li><a href="#process">آلية العمل</a></li>
-        <li><a href="#pricing">الأسعار</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
-        <li><a href="#contact" class="btn btn-primary">ابدأ الآن</a></li>
+        <li><a href="#services" data-i18n="nav.services">الخدمات</a></li>
+        <li><a href="#demo" data-i18n="nav.demo">تجربة مباشرة</a></li>
+        <li><a href="#why-us" data-i18n="nav.why">لماذا نحن</a></li>
+        <li><a href="#process" data-i18n="nav.process">آلية العمل</a></li>
+        <li><a href="#pricing" data-i18n="nav.pricing">الأسعار</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">تواصل معنا</a></li>
+        <li><a href="#contact" class="btn btn-primary" data-i18n="cta.start">ابدأ الآن</a></li>
+        <li><button class="lang-toggle lang-toggle-mobile" aria-label="Switch language">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          <span class="lang-toggle-text">EN</span>
+        </button></li>
       </ul>
     </div>
   </nav>
@@ -87,38 +95,38 @@
 
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        الذكاء الاصطناعي للسوق العربي
+        <span data-i18n="hero.badge">الذكاء الاصطناعي للسوق العربي</span>
       </div>
 
       <h1 class="hero-title">
-        <span class="line">أتمتة تُحوّل</span>
-        <span class="line gradient-text">أعمالك</span>
-        <span class="line">إلى آلة نمو</span>
+        <span class="line" data-i18n="hero.t1">أتمتة تُحوّل</span>
+        <span class="line gradient-text" data-i18n="hero.t2">أعمالك</span>
+        <span class="line" data-i18n="hero.t3">إلى آلة نمو</span>
       </h1>
 
-      <p class="hero-sub">
+      <p class="hero-sub" data-i18n-html="hero.sub">
         نبني حلول ذكاء اصطناعي مخصصة للشركات العربية —<br />
         روبوتات محادثة، تدفقات عمل آلية، وتكامل ذكي مع أنظمتك الحالية.
       </p>
 
       <div class="hero-cta-group">
         <a href="#contact" class="btn btn-primary btn-lg magnetic">
-          <span>احجز استشارتك المجانية</span>
+          <span data-i18n="hero.cta1">احجز استشارتك المجانية</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <a href="#demo" class="btn btn-ghost btn-lg">
-          <span>شاهد كيف يعمل</span>
+          <span data-i18n="hero.cta2">شاهد كيف يعمل</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
         </a>
       </div>
 
       <div class="hero-trust">
-        <span>موثوق به من قِبَل</span>
+        <span data-i18n="hero.trusted">موثوق به من قِبَل</span>
         <div class="trust-logos">
-          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v16M16 21v-9a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v9M4 21h16M8 7h1M8 11h1M8 15h1"/></svg> شركات ناشئة</span>
-          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-6 9 6M5 9v11h14V9M9 20v-6h6v6"/></svg> تجزئة وتجارة</span>
-          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C.8 9 2 5 5.5 5c1.9 0 3.2 1 4.5 2.5C11.3 6 12.6 5 14.5 5 18 5 19.2 9 19.5 12.5 17 16.65 12 21 12 21z"/><path d="M8 12h2l1.5-2.5L13 14l1.5-2.5H16"/></svg> رعاية صحية</span>
-          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-6 9 6M4 10v9M20 10v9M8 10v9M16 10v9M2 19h20M2 10h20"/></svg> خدمات مالية</span>
+          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v16M16 21v-9a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v9M4 21h16M8 7h1M8 11h1M8 15h1"/></svg> <span data-i18n="hero.trust1">شركات ناشئة</span></span>
+          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-6 9 6M5 9v11h14V9M9 20v-6h6v6"/></svg> <span data-i18n="hero.trust2">تجزئة وتجارة</span></span>
+          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.35-9.5-8.5C.8 9 2 5 5.5 5c1.9 0 3.2 1 4.5 2.5C11.3 6 12.6 5 14.5 5 18 5 19.2 9 19.5 12.5 17 16.65 12 21 12 21z"/><path d="M8 12h2l1.5-2.5L13 14l1.5-2.5H16"/></svg> <span data-i18n="hero.trust3">رعاية صحية</span></span>
+          <span class="trust-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10l9-6 9 6M4 10v9M20 10v9M8 10v9M16 10v9M2 19h20M2 10h20"/></svg> <span data-i18n="hero.trust4">خدمات مالية</span></span>
         </div>
       </div>
     </div>
@@ -130,7 +138,7 @@
           <div class="mockup-dots">
             <span></span><span></span><span></span>
           </div>
-          <span class="mockup-title">لوحة تحكم مُجيب</span>
+          <span class="mockup-title" data-i18n="hero.dash">لوحة تحكم مُجيب</span>
         </div>
         <div class="mockup-body">
           <div class="metric-row">
@@ -138,14 +146,14 @@
               <div class="metric-icon" style="background: rgba(27,77,62,0.3)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2M9 13v2M15 13v2"/></svg></div>
               <div>
                 <div class="metric-value counter" data-target="2847">0</div>
-                <div class="metric-label">محادثة اليوم</div>
+                <div class="metric-label" data-i18n="hero.m1">محادثة اليوم</div>
               </div>
             </div>
             <div class="metric-card">
               <div class="metric-icon" style="background: rgba(197,160,89,0.3)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
               <div>
                 <div class="metric-value">98.4%</div>
-                <div class="metric-label">معدل الاستجابة</div>
+                <div class="metric-label" data-i18n="hero.m2">معدل الاستجابة</div>
               </div>
             </div>
           </div>
@@ -154,27 +162,27 @@
               <div class="metric-icon" style="background: rgba(103,56,49,0.3)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v1M12 16v1M9.5 15c0 1.1 1.1 2 2.5 2s2.5-.8 2.5-1.7c0-2.3-5-1.3-5-3.6 0-.9 1.1-1.7 2.5-1.7s2.5.8 2.5 1.7"/></svg></div>
               <div>
                 <div class="metric-value counter" data-target="340">0</div>
-                <div class="metric-label">عميل محوَّل</div>
+                <div class="metric-label" data-i18n="hero.m3">عميل محوَّل</div>
               </div>
             </div>
             <div class="metric-card">
               <div class="metric-icon" style="background: rgba(27,77,62,0.3)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
               <div>
-                <div class="metric-value">1.2ث</div>
-                <div class="metric-label">متوسط الرد</div>
+                <div class="metric-value" data-i18n="hero.reply">1.2ث</div>
+                <div class="metric-label" data-i18n="hero.m4">متوسط الرد</div>
               </div>
             </div>
           </div>
           <div class="activity-bar">
-            <div class="activity-label">نشاط المحادثات — آخر 7 أيام</div>
+            <div class="activity-label" data-i18n="hero.activity">نشاط المحادثات — آخر 7 أيام</div>
             <div class="bar-chart">
-              <div class="bar" style="--h: 60%"><span>أحد</span></div>
-              <div class="bar" style="--h: 80%"><span>اثن</span></div>
-              <div class="bar" style="--h: 55%"><span>ثلث</span></div>
-              <div class="bar" style="--h: 90%"><span>أرب</span></div>
-              <div class="bar" style="--h: 75%"><span>خمس</span></div>
-              <div class="bar active" style="--h: 95%"><span>جمع</span></div>
-              <div class="bar" style="--h: 50%"><span>سبت</span></div>
+              <div class="bar" style="--h: 60%"><span data-i18n="hero.d1">أحد</span></div>
+              <div class="bar" style="--h: 80%"><span data-i18n="hero.d2">اثن</span></div>
+              <div class="bar" style="--h: 55%"><span data-i18n="hero.d3">ثلث</span></div>
+              <div class="bar" style="--h: 90%"><span data-i18n="hero.d4">أرب</span></div>
+              <div class="bar" style="--h: 75%"><span data-i18n="hero.d5">خمس</span></div>
+              <div class="bar active" style="--h: 95%"><span data-i18n="hero.d6">جمع</span></div>
+              <div class="bar" style="--h: 50%"><span data-i18n="hero.d7">سبت</span></div>
             </div>
           </div>
         </div>
@@ -183,31 +191,79 @@
 
     <div class="scroll-indicator">
       <div class="scroll-line"></div>
-      <span>مرّر للأسفل</span>
+      <span data-i18n="hero.scroll">مرّر للأسفل</span>
     </div>
   </section>
 
   <!-- ========== MARQUEE STRIP ========== -->
   <div class="marquee-strip" aria-hidden="true">
     <div class="marquee-track">
-      <span>روبوتات محادثة ذكية</span><span class="marquee-dot"></span>
-      <span>أتمتة سير العمل</span><span class="marquee-dot"></span>
-      <span>تكامل WhatsApp</span><span class="marquee-dot"></span>
-      <span>دعم عربي كامل</span><span class="marquee-dot"></span>
-      <span>تحليلات متقدمة</span><span class="marquee-dot"></span>
-      <span>تسليم في أسبوعين</span><span class="marquee-dot"></span>
-      <span>ضمان استرداد المال</span><span class="marquee-dot"></span>
-      <span>AI Automation</span><span class="marquee-dot"></span>
-      <span>روبوتات محادثة ذكية</span><span class="marquee-dot"></span>
-      <span>أتمتة سير العمل</span><span class="marquee-dot"></span>
-      <span>تكامل WhatsApp</span><span class="marquee-dot"></span>
-      <span>دعم عربي كامل</span><span class="marquee-dot"></span>
-      <span>تحليلات متقدمة</span><span class="marquee-dot"></span>
-      <span>تسليم في أسبوعين</span><span class="marquee-dot"></span>
-      <span>ضمان استرداد المال</span><span class="marquee-dot"></span>
-      <span>AI Automation</span><span class="marquee-dot"></span>
+      <span data-i18n="mq1">روبوتات محادثة ذكية</span><span class="marquee-dot"></span>
+      <span data-i18n="mq2">أتمتة سير العمل</span><span class="marquee-dot"></span>
+      <span data-i18n="mq3">تكامل WhatsApp</span><span class="marquee-dot"></span>
+      <span data-i18n="mq4">دعم عربي كامل</span><span class="marquee-dot"></span>
+      <span data-i18n="mq5">تحليلات متقدمة</span><span class="marquee-dot"></span>
+      <span data-i18n="mq6">تسليم في أسبوعين</span><span class="marquee-dot"></span>
+      <span data-i18n="mq7">ضمان استرداد المال</span><span class="marquee-dot"></span>
+      <span data-i18n="mq8">AI Automation</span><span class="marquee-dot"></span>
+      <span data-i18n="mq1">روبوتات محادثة ذكية</span><span class="marquee-dot"></span>
+      <span data-i18n="mq2">أتمتة سير العمل</span><span class="marquee-dot"></span>
+      <span data-i18n="mq3">تكامل WhatsApp</span><span class="marquee-dot"></span>
+      <span data-i18n="mq4">دعم عربي كامل</span><span class="marquee-dot"></span>
+      <span data-i18n="mq5">تحليلات متقدمة</span><span class="marquee-dot"></span>
+      <span data-i18n="mq6">تسليم في أسبوعين</span><span class="marquee-dot"></span>
+      <span data-i18n="mq7">ضمان استرداد المال</span><span class="marquee-dot"></span>
+      <span data-i18n="mq8">AI Automation</span><span class="marquee-dot"></span>
     </div>
   </div>
+
+  <!-- ========== CTA BANNER ========== -->
+  <section class="cta-banner">
+    <div class="container cta-banner-inner reveal">
+      <h2 data-i18n="cta.title">لا تترك عميلاً ينتظر</h2>
+      <p data-i18n="cta.sub">ابدأ اليوم مع مُجيب يرد، يحجز، ويجمع عملاءك — بينما تركّز أنت على عملك.</p>
+      <div class="cta-banner-actions">
+        <a href="https://wa.me/962XXXXXXXXX" class="btn btn-cta-ghost">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.787 23.213 5.08 21.74A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.373l-.358-.213-3.721 1.196 1.167-3.625-.234-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+          <span data-i18n="cta.whatsapp">واتساب</span>
+        </a>
+        <a href="#contact" class="btn btn-cta-solid magnetic" data-i18n="cta.demo">احجز عرض توضيحي مجاني</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CLIENTS ========== -->
+  <section class="clients-section" id="clients">
+    <div class="container">
+      <p class="clients-label reveal" data-i18n="clients.label">موثوق به من قِبَل شركات رائدة في المنطقة</p>
+      <div class="clients-grid reveal">
+        <div class="client-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 2l1.5 4h9L18 2M4 6h16l-1.5 13a2 2 0 0 1-2 1.8H7.5a2 2 0 0 1-2-1.8z"/><path d="M9 11a3 3 0 0 0 6 0"/></svg>
+          <span data-i18n="clients.c1">متجر الأناقة</span>
+        </div>
+        <div class="client-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+          <span data-i18n="clients.c2">تِك سوق</span>
+        </div>
+        <div class="client-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.35-9.5-8.5C.8 9 2 5 5.5 5c1.9 0 3.2 1 4.5 2.5C11.3 6 12.6 5 14.5 5 18 5 19.2 9 19.5 12.5 17 16.65 12 21 12 21z"/><path d="M12 8v4M10 10h4"/></svg>
+          <span data-i18n="clients.c3">عيادات النخبة</span>
+        </div>
+        <div class="client-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h13a3 3 0 0 1 0 6h-1M4 8v8a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2V8zM8 2v2M11 2v2"/></svg>
+          <span data-i18n="clients.c4">بيت القهوة</span>
+        </div>
+        <div class="client-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 6h11v9H1zM12 9h5l4 3v3h-9M5.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM17.5 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+          <span data-i18n="clients.c5">لوجستيك برو</span>
+        </div>
+        <div class="client-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.5 5 5.5.5-4 4 1 5.5-5-3-5 3 1-5.5-4-4 5.5-.5z"/></svg>
+          <span data-i18n="clients.c6">دار الأزياء</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- ========== STATS ========== -->
   <section class="stats-section" id="stats">
@@ -215,19 +271,19 @@
       <div class="stats-grid">
         <div class="stat-item reveal">
           <div class="stat-number"><span class="counter" data-target="150">0</span>+</div>
-          <div class="stat-label">مشروع مُنجز</div>
+          <div class="stat-label" data-i18n="stats.s1">مشروع مُنجز</div>
         </div>
         <div class="stat-item reveal">
           <div class="stat-number"><span class="counter" data-target="98">0</span>%</div>
-          <div class="stat-label">رضا العملاء</div>
+          <div class="stat-label" data-i18n="stats.s2">رضا العملاء</div>
         </div>
         <div class="stat-item reveal">
           <div class="stat-number"><span class="counter" data-target="3">0</span>×</div>
-          <div class="stat-label">نمو متوسط في المبيعات</div>
+          <div class="stat-label" data-i18n="stats.s3">نمو متوسط في المبيعات</div>
         </div>
         <div class="stat-item reveal">
           <div class="stat-number"><span class="counter" data-target="70">0</span>%</div>
-          <div class="stat-label">توفير في تكاليف الدعم</div>
+          <div class="stat-label" data-i18n="stats.s4">توفير في تكاليف الدعم</div>
         </div>
       </div>
     </div>
@@ -237,9 +293,9 @@
   <section class="services-section section" id="services">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-tag">ما نقدمه</div>
-        <h2 class="section-title">خدماتنا <span class="gradient-text">الأساسية</span></h2>
-        <p class="section-sub">نبني كل حل من الصفر ليتناسب مع طبيعة عملك، لغتك، وعملائك</p>
+        <div class="section-tag" data-i18n="services.tag">ما نقدمه</div>
+        <h2 class="section-title" data-i18n-html="services.title">خدماتنا <span class="gradient-text">الأساسية</span></h2>
+        <p class="section-sub" data-i18n="services.sub">نبني كل حل من الصفر ليتناسب مع طبيعة عملك، لغتك، وعملائك</p>
       </div>
 
       <div class="services-grid">
@@ -254,33 +310,33 @@
               <circle cx="15" cy="10" r="1" fill="currentColor"/>
             </svg>
           </div>
-          <h3>روبوتات محادثة ذكية</h3>
-          <p>روبوتات مخصصة تتحدث بالعربية الفصحى واللهجات المحلية، تفهم السياق، وتُحوّل الزوار إلى عملاء على مدار الساعة.</p>
+          <h3 data-i18n="services.s1.t">روبوتات محادثة ذكية</h3>
+          <p data-i18n="services.s1.p">روبوتات مخصصة تتحدث بالعربية الفصحى واللهجات المحلية، تفهم السياق، وتُحوّل الزوار إلى عملاء على مدار الساعة.</p>
           <ul class="service-features">
-            <li><span class="feat-dot" style="background:#1B4D3E"></span>دعم WhatsApp وInstagram وWebsite</li>
-            <li><span class="feat-dot" style="background:#1B4D3E"></span>تكامل مع CRM وبوابات الدفع</li>
-            <li><span class="feat-dot" style="background:#1B4D3E"></span>تعلّم مستمر من المحادثات</li>
+            <li><span class="feat-dot" style="background:#1B4D3E"></span><span data-i18n="svc.f1">دعم WhatsApp وInstagram وWebsite</span></li>
+            <li><span class="feat-dot" style="background:#1B4D3E"></span><span data-i18n="svc.f2">تكامل مع CRM وبوابات الدفع</span></li>
+            <li><span class="feat-dot" style="background:#1B4D3E"></span><span data-i18n="svc.f3">تعلّم مستمر من المحادثات</span></li>
           </ul>
-          <a href="#contact" class="service-link">ابنِ روبوتك <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
+          <a href="#contact" class="service-link"><span data-i18n="services.s1.link">ابنِ روبوتك</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
         </div>
 
         <!-- Service 2 -->
         <div class="service-card reveal featured" data-delay="0.15">
-          <div class="service-badge">الأكثر طلبًا</div>
+          <div class="service-badge" data-i18n="services.badge">الأكثر طلبًا</div>
           <div class="service-glow"></div>
           <div class="service-icon-wrap" style="--accent: #C5A059">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
             </svg>
           </div>
-          <h3>أتمتة سير العمل</h3>
-          <p>نُلغي المهام اليدوية المتكررة بالكامل — من معالجة الطلبات، وإرسال الفواتير، إلى تحديث قواعد البيانات آليًا دون تدخل بشري.</p>
+          <h3 data-i18n="services.s2.t">أتمتة سير العمل</h3>
+          <p data-i18n="services.s2.p">نُلغي المهام اليدوية المتكررة بالكامل — من معالجة الطلبات، وإرسال الفواتير، إلى تحديث قواعد البيانات آليًا دون تدخل بشري.</p>
           <ul class="service-features">
-            <li><span class="feat-dot" style="background:#C5A059"></span>ربط 1000+ تطبيق (Make, Zapier)</li>
-            <li><span class="feat-dot" style="background:#C5A059"></span>سير عمل مُخصص لقطاعك</li>
-            <li><span class="feat-dot" style="background:#C5A059"></span>لوحة مراقبة ورصد مباشر</li>
+            <li><span class="feat-dot" style="background:#C5A059"></span><span data-i18n="svc.f4">ربط 1000+ تطبيق (Make, Zapier)</span></li>
+            <li><span class="feat-dot" style="background:#C5A059"></span><span data-i18n="svc.f5">سير عمل مُخصص لقطاعك</span></li>
+            <li><span class="feat-dot" style="background:#C5A059"></span><span data-i18n="svc.f6">لوحة مراقبة ورصد مباشر</span></li>
           </ul>
-          <a href="#contact" class="service-link">أتمت عملك <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
+          <a href="#contact" class="service-link"><span data-i18n="services.s2.link">أتمت عملك</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
         </div>
 
         <!-- Service 3 -->
@@ -292,14 +348,14 @@
               <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
             </svg>
           </div>
-          <h3>تكامل الأنظمة الذكي</h3>
-          <p>نربط الذكاء الاصطناعي بمنظومتك التقنية الكاملة — ERP، CRM، المتجر الإلكتروني — لتتدفق البيانات بسلاسة دون انقطاع.</p>
+          <h3 data-i18n="services.s3.t">تكامل الأنظمة الذكي</h3>
+          <p data-i18n="services.s3.p">نربط الذكاء الاصطناعي بمنظومتك التقنية الكاملة — ERP، CRM، المتجر الإلكتروني — لتتدفق البيانات بسلاسة دون انقطاع.</p>
           <ul class="service-features">
-            <li><span class="feat-dot" style="background:#673831"></span>تكامل SAP, Odoo, Salesforce</li>
-            <li><span class="feat-dot" style="background:#673831"></span>API مخصصة وآمنة</li>
-            <li><span class="feat-dot" style="background:#673831"></span>دعم تقني مستمر 24/7</li>
+            <li><span class="feat-dot" style="background:#673831"></span><span data-i18n="svc.f7">تكامل SAP, Odoo, Salesforce</span></li>
+            <li><span class="feat-dot" style="background:#673831"></span><span data-i18n="svc.f8">API مخصصة وآمنة</span></li>
+            <li><span class="feat-dot" style="background:#673831"></span><span data-i18n="svc.f9">دعم تقني مستمر 24/7</span></li>
           </ul>
-          <a href="#contact" class="service-link">اكتشف إمكانياتك <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
+          <a href="#contact" class="service-link"><span data-i18n="services.s3.link">اكتشف إمكانياتك</span> <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></a>
         </div>
       </div>
     </div>
@@ -311,31 +367,31 @@
     <div class="container">
       <div class="demo-layout">
         <div class="demo-info reveal">
-          <div class="section-tag">تجربة حية</div>
-          <h2 class="section-title">شاهد الروبوت <span class="gradient-text">في العمل</span></h2>
-          <p class="section-sub">هذا مثال حقيقي لروبوت مبيعات بُني لشركة تجارة إلكترونية. الروبوت يفهم، يجيب، ويُحوّل — على مدار الساعة.</p>
+          <div class="section-tag" data-i18n="demo.tag">تجربة حية</div>
+          <h2 class="section-title" data-i18n-html="demo.title">شاهد الروبوت <span class="gradient-text">في العمل</span></h2>
+          <p class="section-sub" data-i18n="demo.sub">هذا مثال حقيقي لروبوت مبيعات بُني لشركة تجارة إلكترونية. الروبوت يفهم، يجيب، ويُحوّل — على مدار الساعة.</p>
 
           <div class="demo-stats">
             <div class="demo-stat">
-              <strong>1.2 ث</strong>
-              <span>متوسط وقت الرد</span>
+              <strong data-i18n="demo.st1v">1.2 ث</strong>
+              <span data-i18n="demo.st1">متوسط وقت الرد</span>
             </div>
             <div class="demo-stat">
               <strong>24/7</strong>
-              <span>لا يتوقف أبدًا</span>
+              <span data-i18n="demo.st2">لا يتوقف أبدًا</span>
             </div>
             <div class="demo-stat">
-              <strong>عربي</strong>
-              <span>فصحى ولهجات</span>
+              <strong data-i18n="demo.st3v">عربي</strong>
+              <span data-i18n="demo.st3">فصحى ولهجات</span>
             </div>
           </div>
 
           <div class="demo-scenarios">
-            <p class="scenarios-label">جرّب سيناريو:</p>
+            <p class="scenarios-label" data-i18n="demo.try">جرّب سيناريو:</p>
             <div class="scenario-btns">
-              <button class="scenario-btn active" data-scenario="sales">مبيعات <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V6a6 6 0 0 1 12 0v3M4 9h16l-1 12H5L4 9z"/></svg></button>
-              <button class="scenario-btn" data-scenario="support">دعم <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 14v-2a8 8 0 0 1 16 0v2M2 14a2 2 0 0 1 2-2h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a2 2 0 0 1-2-2v-2zM22 14a2 2 0 0 0-2-2h-1a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1a2 2 0 0 0 2-2v-2zM8 20a2 2 0 0 0 2 2h2"/></svg></button>
-              <button class="scenario-btn" data-scenario="booking">حجز <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></button>
+              <button class="scenario-btn active" data-scenario="sales"><span data-i18n="demo.sales">مبيعات</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 9V6a6 6 0 0 1 12 0v3M4 9h16l-1 12H5L4 9z"/></svg></button>
+              <button class="scenario-btn" data-scenario="support"><span data-i18n="demo.support">دعم</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 14v-2a8 8 0 0 1 16 0v2M2 14a2 2 0 0 1 2-2h1a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a2 2 0 0 1-2-2v-2zM22 14a2 2 0 0 0-2-2h-1a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h1a2 2 0 0 0 2-2v-2zM8 20a2 2 0 0 0 2 2h2"/></svg></button>
+              <button class="scenario-btn" data-scenario="booking"><span data-i18n="demo.booking">حجز</span> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></button>
             </div>
           </div>
         </div>
@@ -367,8 +423,8 @@
                       <div class="wa-online"></div>
                     </div>
                     <div class="wa-contact-info">
-                      <div class="wa-name">مُجيب — مساعد المتجر</div>
-                      <div class="wa-status">متصل الآن</div>
+                      <div class="wa-name" data-i18n="demo.waname">مُجيب — مساعد المتجر</div>
+                      <div class="wa-status" data-i18n="demo.online">متصل الآن</div>
                     </div>
                   </div>
                   <div class="wa-actions">⋮</div>
@@ -376,13 +432,13 @@
 
                 <!-- WA Messages -->
                 <div class="wa-messages" id="waMessages">
-                  <div class="wa-date-divider">اليوم</div>
+                  <div class="wa-date-divider" data-i18n="demo.today">اليوم</div>
                 </div>
 
                 <!-- WA Input -->
                 <div class="wa-input-area">
                   <div class="wa-emoji"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8.5 14.5c.8.9 2 1.5 3.5 1.5s2.7-.6 3.5-1.5"/></svg></div>
-                  <div class="wa-input" id="waInput">اكتب رسالة...</div>
+                  <div class="wa-input" id="waInput" data-i18n="demo.type">اكتب رسالة...</div>
                   <button class="wa-send-btn" id="waSendBtn" aria-label="Send">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
                   </button>
@@ -400,31 +456,31 @@
   <section class="why-section section" id="why-us">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-tag">ميزتنا</div>
-        <h2 class="section-title">لماذا <span class="gradient-text">مُجيب</span>؟</h2>
-        <p class="section-sub">لسنا مجرد مزود خدمة — نحن شريك نمو يفهم السوق العربي</p>
+        <div class="section-tag" data-i18n="why.tag">ميزتنا</div>
+        <h2 class="section-title" data-i18n-html="why.title">لماذا <span class="gradient-text">مُجيب</span>؟</h2>
+        <p class="section-sub" data-i18n="why.sub">لسنا مجرد مزود خدمة — نحن شريك نمو يفهم السوق العربي</p>
       </div>
 
       <div class="why-grid why-grid-4">
         <div class="why-card reveal" data-delay="0">
           <div class="why-icon-wrap"><svg class="why-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h8M8 13h5"/></svg></div>
-          <h3>يفهم لهجتك</h3>
-          <p>عربي أصيل يفهم اللهجات الخليجية والشامية — لا ترجمة آلية باردة.</p>
+          <h3 data-i18n="why.w1.t">يفهم لهجتك</h3>
+          <p data-i18n="why.w1.p">عربي أصيل يفهم اللهجات الخليجية والشامية — لا ترجمة آلية باردة.</p>
         </div>
         <div class="why-card reveal" data-delay="0.1">
           <div class="why-icon-wrap"><svg class="why-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-          <h3>ردود فورية</h3>
-          <p>يردّ في أي وقت — خلال ثانية — فلا يبقى عميل ينتظر.</p>
+          <h3 data-i18n="why.w2.t">ردود فورية</h3>
+          <p data-i18n="why.w2.p">يردّ في أي وقت — خلال ثانية — فلا يبقى عميل ينتظر.</p>
         </div>
         <div class="why-card reveal" data-delay="0.2">
           <div class="why-icon-wrap"><svg class="why-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
-          <h3>إعداد سهل</h3>
-          <p>جاهز خلال أيام. ندرّبه على عملك بالكامل ونتولّى الباقي.</p>
+          <h3 data-i18n="why.w3.t">إعداد سهل</h3>
+          <p data-i18n="why.w3.p">جاهز خلال أيام. ندرّبه على عملك بالكامل ونتولّى الباقي.</p>
         </div>
         <div class="why-card reveal" data-delay="0.3">
           <div class="why-icon-wrap"><svg class="why-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div>
-          <h3>لا يغفل أبدًا</h3>
-          <p>يعمل 24/7 بلا إجازات ولا انقطاع — حتى وأنت نائم.</p>
+          <h3 data-i18n="why.w4.t">لا يغفل أبدًا</h3>
+          <p data-i18n="why.w4.p">يعمل 24/7 بلا إجازات ولا انقطاع — حتى وأنت نائم.</p>
         </div>
       </div>
     </div>
@@ -434,9 +490,9 @@
   <section class="process-section section" id="process">
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-tag">آلية العمل</div>
-        <h2 class="section-title">من الفكرة إلى <span class="gradient-text">النتيجة</span></h2>
-        <p class="section-sub">أربع خطوات واضحة، بلا تعقيد، بلا مفاجآت</p>
+        <div class="section-tag" data-i18n="process.tag">آلية العمل</div>
+        <h2 class="section-title" data-i18n-html="process.title">من الفكرة إلى <span class="gradient-text">النتيجة</span></h2>
+        <p class="section-sub" data-i18n="process.sub">أربع خطوات واضحة، بلا تعقيد، بلا مفاجآت</p>
       </div>
 
       <div class="process-steps">
@@ -445,36 +501,36 @@
         <div class="process-step reveal" data-delay="0">
           <div class="step-number">01</div>
           <div class="step-content">
-            <h3>جلسة الاكتشاف</h3>
-            <p>نجلس معك ساعة كاملة، نفهم عملك، تحدياتك، وأهدافك. الجلسة مجانية وبلا التزام.</p>
-            <span class="step-duration"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> يوم واحد</span>
+            <h3 data-i18n="process.p1.t">جلسة الاكتشاف</h3>
+            <p data-i18n="process.p1.p">نجلس معك ساعة كاملة، نفهم عملك، تحدياتك، وأهدافك. الجلسة مجانية وبلا التزام.</p>
+            <span class="step-duration"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> <span data-i18n="process.p1.d">يوم واحد</span></span>
           </div>
         </div>
 
         <div class="process-step reveal" data-delay="0.15">
           <div class="step-number">02</div>
           <div class="step-content">
-            <h3>التصميم والتخطيط</h3>
-            <p>نبني خريطة الحل الكاملة — سير المحادثات، نقاط التكامل، ومؤشرات النجاح المتفق عليها.</p>
-            <span class="step-duration"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 3 أيام</span>
+            <h3 data-i18n="process.p2.t">التصميم والتخطيط</h3>
+            <p data-i18n="process.p2.p">نبني خريطة الحل الكاملة — سير المحادثات، نقاط التكامل، ومؤشرات النجاح المتفق عليها.</p>
+            <span class="step-duration"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> <span data-i18n="process.p2.d">3 أيام</span></span>
           </div>
         </div>
 
         <div class="process-step reveal" data-delay="0.3">
           <div class="step-number">03</div>
           <div class="step-content">
-            <h3>البناء والاختبار</h3>
-            <p>نبني الحل ونختبره بأسئلة حقيقية من سوقك. نُعدّل حتى يعمل بدقة 98%+ قبل التسليم.</p>
-            <span class="step-duration"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 7-10 أيام</span>
+            <h3 data-i18n="process.p3.t">البناء والاختبار</h3>
+            <p data-i18n="process.p3.p">نبني الحل ونختبره بأسئلة حقيقية من سوقك. نُعدّل حتى يعمل بدقة 98%+ قبل التسليم.</p>
+            <span class="step-duration"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> <span data-i18n="process.p3.d">7-10 أيام</span></span>
           </div>
         </div>
 
         <div class="process-step reveal" data-delay="0.45">
           <div class="step-number">04</div>
           <div class="step-content">
-            <h3>الإطلاق والتحسين</h3>
-            <p>إطلاق خاضع للرقابة، ثم تحسين مستمر بناءً على بيانات المحادثات الحقيقية.</p>
-            <span class="step-duration"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> مستمر</span>
+            <h3 data-i18n="process.p4.t">الإطلاق والتحسين</h3>
+            <p data-i18n="process.p4.p">إطلاق خاضع للرقابة، ثم تحسين مستمر بناءً على بيانات المحادثات الحقيقية.</p>
+            <span class="step-duration"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> <span data-i18n="process.p4.d">مستمر</span></span>
           </div>
         </div>
       </div>
@@ -486,44 +542,29 @@
     <div class="container">
       <div class="problem-layout">
         <div class="problem-info reveal">
-          <div class="section-tag">المشكلة</div>
-          <h2 class="section-title">العميل لا ينتظر. الرد المتأخر = <span class="gradient-text">صفقة ضائعة</span>.</h2>
-          <p class="section-sub problem-sub">معظم العملاء يتوقعون ردًا خلال دقائق. عندما تتأخر، يذهبون مباشرة إلى منافسك — الرسائل خارج أوقات الدوام، الأسئلة المتكررة، وحجوزات لم يُرَد عليها، فرص تتسرب كل يوم.</p>
+          <div class="section-tag" data-i18n="problem.tag">المشكلة</div>
+          <h2 class="section-title" data-i18n-html="problem.title">العميل لا ينتظر. الرد المتأخر = <span class="gradient-text">صفقة ضائعة</span>.</h2>
+          <p class="section-sub problem-sub" data-i18n="problem.sub">معظم العملاء يتوقعون ردًا خلال دقائق. عندما تتأخر، يذهبون مباشرة إلى منافسك — الرسائل خارج أوقات الدوام، الأسئلة المتكررة، وحجوزات لم يُرَد عليها، فرص تتسرب كل يوم.</p>
         </div>
         <div class="problem-highlight reveal" data-delay="0.15">
-          <div class="highlight-number">5 <span>دقائق</span></div>
-          <p>نافذتك للردّ قبل أن تخسر العميل</p>
+          <div class="highlight-number" data-i18n-html="problem.hl">5 <span>دقائق</span></div>
+          <p data-i18n="problem.hlp">نافذتك للردّ قبل أن تخسر العميل</p>
         </div>
       </div>
 
       <div class="problem-stats">
         <div class="problem-stat reveal" data-delay="0">
           <div class="problem-stat-value">24/7</div>
-          <p>الرسائل لا تتوقف، حتى بعد إغلاق المحل.</p>
+          <p data-i18n="problem.p1">الرسائل لا تتوقف، حتى بعد إغلاق المحل.</p>
         </div>
         <div class="problem-stat reveal" data-delay="0.1">
           <div class="problem-stat-value">79%</div>
-          <p>من العملاء يتعاملون مع أول من يردّ عليهم.</p>
+          <p data-i18n="problem.p2">من العملاء يتعاملون مع أول من يردّ عليهم.</p>
         </div>
         <div class="problem-stat reveal" data-delay="0.2">
-          <div class="problem-stat-value">5 دقائق</div>
-          <p>بعدها تنخفض فرص تحويل العميل بشكل حاد.</p>
+          <div class="problem-stat-value" data-i18n="problem.v3">5 دقائق</div>
+          <p data-i18n="problem.p3">بعدها تنخفض فرص تحويل العميل بشكل حاد.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== CTA BANNER ========== -->
-  <section class="cta-banner">
-    <div class="container cta-banner-inner reveal">
-      <h2>لا تترك عميلاً ينتظر</h2>
-      <p>ابدأ اليوم مع مُجيب يرد، يحجز، ويجمع عملاءك — بينما تركّز أنت على عملك.</p>
-      <div class="cta-banner-actions">
-        <a href="https://wa.me/962XXXXXXXXX" class="btn btn-cta-ghost">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.787 23.213 5.08 21.74A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.373l-.358-.213-3.721 1.196 1.167-3.625-.234-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-          <span>واتساب</span>
-        </a>
-        <a href="#contact" class="btn btn-cta-solid magnetic">احجز عرض توضيحي مجاني</a>
       </div>
     </div>
   </section>
@@ -533,15 +574,15 @@
     <div class="pricing-bg-glow"></div>
     <div class="container">
       <div class="section-header reveal">
-        <div class="section-tag">الأسعار</div>
-        <h2 class="section-title">استثمر في <span class="gradient-text">النمو</span></h2>
-        <p class="section-sub">حزم واضحة بلا رسوم خفية — ادفع مقابل النتيجة لا مقابل الساعات</p>
+        <div class="section-tag" data-i18n="pricing.tag">الأسعار</div>
+        <h2 class="section-title" data-i18n-html="pricing.title">استثمر في <span class="gradient-text">النمو</span></h2>
+        <p class="section-sub" data-i18n="pricing.sub">حزم واضحة بلا رسوم خفية — ادفع مقابل النتيجة لا مقابل الساعات</p>
         <div class="pricing-toggle">
-          <span class="toggle-label active" id="monthlyLabel">شهري</span>
+          <span class="toggle-label active" id="monthlyLabel" data-i18n="pricing.monthly">شهري</span>
           <button class="toggle-switch" id="billingToggle" aria-label="Toggle billing">
             <span class="toggle-thumb"></span>
           </button>
-          <span class="toggle-label" id="yearlyLabel">سنوي <span class="save-badge">وفّر 20%</span></span>
+          <span class="toggle-label" id="yearlyLabel" data-i18n-html="pricing.yearly">سنوي <span class="save-badge">وفّر 20%</span></span>
         </div>
       </div>
 
@@ -553,7 +594,7 @@
             <div class="plan-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.5-2 5-2 5s3.5-.5 5-2c.8-.8 1-2 .2-2.8-.8-.8-2-.6-2.8.2z"/><path d="M9 15l-2-2c1.5-3 3-6 6-8 3.5-2.5 6.5-2 6.5-2s.5 3-2 6.5c-2 3-5 4.5-8 6z"/><circle cx="15" cy="9" r="1.5"/></svg></div>
             <div>
               <h3 class="plan-name">Starter</h3>
-              <p class="plan-tagline">للشركات الناشئة</p>
+              <p class="plan-tagline" data-i18n="pricing.tag1">للشركات الناشئة</p>
             </div>
           </div>
           <div class="plan-price-wrap">
@@ -561,30 +602,30 @@
               <span class="currency">$</span>
               <span class="amount monthly-price">149</span>
               <span class="amount yearly-price hidden">119</span>
-              <span class="period">/شهر</span>
+              <span class="period" data-i18n="pricing.mo">/شهر</span>
             </div>
-            <p class="plan-desc">مثالي لمن يريد أول تجربة فعلية مع الأتمتة</p>
+            <p class="plan-desc" data-i18n="pricing.d1">مثالي لمن يريد أول تجربة فعلية مع الأتمتة</p>
           </div>
           <ul class="plan-features">
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> روبوت محادثة واحد</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> حتى 1,000 محادثة / شهر</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> تكامل مع WhatsApp أو الموقع</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> لوحة تحليلات أساسية</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> دعم تقني خلال ساعات العمل</li>
-            <li class="disabled"><span class="cross"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span> أتمتة سير العمل</li>
-            <li class="disabled"><span class="cross"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span> تكامل CRM / ERP</li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.0">روبوت محادثة واحد</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.1">حتى 1,000 محادثة / شهر</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.2">تكامل مع WhatsApp أو الموقع</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.3">لوحة تحليلات أساسية</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.4">دعم تقني خلال ساعات العمل</span></li>
+            <li class="disabled"><span class="cross"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span> <span data-i18n="pf.5">أتمتة سير العمل</span></li>
+            <li class="disabled"><span class="cross"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M6 6l12 12M18 6L6 18"/></svg></span> <span data-i18n="pf.6">تكامل CRM / ERP</span></li>
           </ul>
-          <a href="#contact" class="btn btn-ghost btn-full pricing-cta">ابدأ مجاناً لأسبوع</a>
+          <a href="#contact" class="btn btn-ghost btn-full pricing-cta" data-i18n="pricing.cta1">ابدأ مجاناً لأسبوع</a>
         </div>
 
         <!-- Growth — Featured -->
         <div class="pricing-card featured reveal" data-delay="0.15">
-          <div class="pricing-popular-badge">الأكثر اختياراً <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6z"/></svg></div>
+          <div class="pricing-popular-badge"><span data-i18n="pricing.popular">الأكثر اختياراً</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L6 21l1.6-7L2.2 9.2l7.1-.6z"/></svg></div>
           <div class="pricing-card-header">
             <div class="plan-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
             <div>
               <h3 class="plan-name">Growth</h3>
-              <p class="plan-tagline">للشركات في مرحلة التوسع</p>
+              <p class="plan-tagline" data-i18n="pricing.tag2">للشركات في مرحلة التوسع</p>
             </div>
           </div>
           <div class="plan-price-wrap">
@@ -592,20 +633,20 @@
               <span class="currency">$</span>
               <span class="amount monthly-price">349</span>
               <span class="amount yearly-price hidden">279</span>
-              <span class="period">/شهر</span>
+              <span class="period" data-i18n="pricing.mo">/شهر</span>
             </div>
-            <p class="plan-desc">الحزمة الكاملة لأتمتة المبيعات والدعم معًا</p>
+            <p class="plan-desc" data-i18n="pricing.d2">الحزمة الكاملة لأتمتة المبيعات والدعم معًا</p>
           </div>
           <ul class="plan-features">
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> حتى 3 روبوتات محادثة</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> حتى 10,000 محادثة / شهر</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> تكامل WhatsApp + Instagram + الموقع</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> أتمتة 3 سير عمل مخصصة</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> تكامل CRM أساسي</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> لوحة تحليلات متقدمة</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> دعم تقني 24/7 عبر واتساب</li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.7">حتى 3 روبوتات محادثة</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.8">حتى 10,000 محادثة / شهر</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.9">تكامل WhatsApp + Instagram + الموقع</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.10">أتمتة 3 سير عمل مخصصة</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.11">تكامل CRM أساسي</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.12">لوحة تحليلات متقدمة</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.13">دعم تقني 24/7 عبر واتساب</span></li>
           </ul>
-          <a href="#contact" class="btn btn-primary btn-full pricing-cta magnetic">احجز عرضاً توضيحياً</a>
+          <a href="#contact" class="btn btn-primary btn-full pricing-cta magnetic" data-i18n="pricing.cta2">احجز عرضاً توضيحياً</a>
         </div>
 
         <!-- Enterprise -->
@@ -614,25 +655,25 @@
             <div class="plan-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 21V5a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v16M16 21v-9a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v9M4 21h16M8 7h1M8 11h1M8 15h1"/></svg></div>
             <div>
               <h3 class="plan-name">Enterprise</h3>
-              <p class="plan-tagline">للمؤسسات والفرق الكبيرة</p>
+              <p class="plan-tagline" data-i18n="pricing.tag3">للمؤسسات والفرق الكبيرة</p>
             </div>
           </div>
           <div class="plan-price-wrap">
             <div class="plan-price enterprise-price">
-              <span class="amount">تسعير مخصص</span>
+              <span class="amount" data-i18n="pricing.custom">تسعير مخصص</span>
             </div>
-            <p class="plan-desc">حل مبني من الصفر لمتطلباتك بلا قيود</p>
+            <p class="plan-desc" data-i18n="pricing.d3">حل مبني من الصفر لمتطلباتك بلا قيود</p>
           </div>
           <ul class="plan-features">
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> روبوتات غير محدودة</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> محادثات غير محدودة</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> تكامل كامل مع ERP / SAP / Odoo</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> أتمتة سير عمل غير محدودة</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> نماذج ذكاء اصطناعي خاصة بك</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> SLA مضمون 99.9%</li>
-            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> مدير حساب مخصص</li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.14">روبوتات غير محدودة</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.15">محادثات غير محدودة</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.16">تكامل كامل مع ERP / SAP / Odoo</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.17">أتمتة سير عمل غير محدودة</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.18">نماذج ذكاء اصطناعي خاصة بك</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.19">SLA مضمون 99.9%</span></li>
+            <li><span class="check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span> <span data-i18n="pf.20">مدير حساب مخصص</span></li>
           </ul>
-          <a href="#contact" class="btn btn-ghost btn-full pricing-cta">تحدث مع فريقنا</a>
+          <a href="#contact" class="btn btn-ghost btn-full pricing-cta" data-i18n="pricing.cta3">تحدث مع فريقنا</a>
         </div>
 
       </div>
@@ -640,7 +681,7 @@
       <!-- Guarantee strip -->
       <div class="pricing-guarantee reveal">
         <span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span>
-        <p>ضمان استعادة المال خلال <strong>14 يوماً</strong> — إذا لم يعجبك الحل، نردّ لك كل شيء بلا أسئلة</p>
+        <p data-i18n-html="pricing.guarantee">ضمان استعادة المال خلال <strong>14 يوماً</strong> — إذا لم يعجبك الحل، نردّ لك كل شيء بلا أسئلة</p>
       </div>
     </div>
   </section>
@@ -651,26 +692,26 @@
     <div class="container">
       <div class="contact-layout">
         <div class="contact-info reveal">
-          <div class="section-tag">ابدأ الآن</div>
-          <h2 class="section-title">جاهز لتحويل <span class="gradient-text">عملك</span>؟</h2>
-          <p>احجز جلستك المجانية اليوم. خلال 30 دقيقة ستعرف بالضبط كيف يمكن لـمُجيب أن يُضاعف كفاءة فريقك.</p>
+          <div class="section-tag" data-i18n="cta.start">ابدأ الآن</div>
+          <h2 class="section-title" data-i18n-html="contact.title">جاهز لتحويل <span class="gradient-text">عملك</span>؟</h2>
+          <p data-i18n="contact.sub">احجز جلستك المجانية اليوم. خلال 30 دقيقة ستعرف بالضبط كيف يمكن لـمُجيب أن يُضاعف كفاءة فريقك.</p>
 
           <div class="contact-perks">
             <div class="perk-item">
               <span class="perk-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span>
-              <span>استشارة مجانية لا التزام فيها</span>
+              <span data-i18n="contact.k1">استشارة مجانية لا التزام فيها</span>
             </div>
             <div class="perk-item">
               <span class="perk-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span>
-              <span>خريطة حل مُخصصة لعملك</span>
+              <span data-i18n="contact.k2">خريطة حل مُخصصة لعملك</span>
             </div>
             <div class="perk-item">
               <span class="perk-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span>
-              <span>رد خلال 24 ساعة عمل</span>
+              <span data-i18n="contact.k3">رد خلال 24 ساعة عمل</span>
             </div>
             <div class="perk-item">
               <span class="perk-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg></span>
-              <span>بدون ضغط بيعي — فقط حلول حقيقية</span>
+              <span data-i18n="contact.k4">بدون ضغط بيعي — فقط حلول حقيقية</span>
             </div>
           </div>
         </div>
@@ -678,49 +719,49 @@
         <div class="contact-form-wrap reveal">
           <form class="contact-form" id="contactForm">
             <div class="form-group">
-              <label for="fullName">الاسم الكامل *</label>
-              <input type="text" id="fullName" name="fullName" placeholder="محمد العمري" required />
+              <label for="fullName" data-i18n="form.name">الاسم الكامل *</label>
+              <input type="text" id="fullName" name="fullName" placeholder="محمد العمري" data-i18n-ph="form.namePh" required />
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label for="company">اسم الشركة</label>
-                <input type="text" id="company" name="company" placeholder="شركتك" />
+                <label for="company" data-i18n="form.company">اسم الشركة</label>
+                <input type="text" id="company" name="company" placeholder="شركتك" data-i18n-ph="form.companyPh" />
               </div>
               <div class="form-group">
-                <label for="phone">رقم الهاتف *</label>
+                <label for="phone" data-i18n="form.phone">رقم الهاتف *</label>
                 <input type="tel" id="phone" name="phone" placeholder="+962 7X XXX XXXX" required />
               </div>
             </div>
             <div class="form-group">
-              <label for="email">البريد الإلكتروني *</label>
+              <label for="email" data-i18n="form.email">البريد الإلكتروني *</label>
               <input type="email" id="email" name="email" placeholder="name@company.com" required />
             </div>
             <div class="form-group">
-              <label for="service">الخدمة المطلوبة</label>
+              <label for="service" data-i18n="form.service">الخدمة المطلوبة</label>
               <select id="service" name="service">
-                <option value="">اختر الخدمة...</option>
-                <option value="chatbot">روبوت محادثة</option>
-                <option value="automation">أتمتة سير العمل</option>
-                <option value="integration">تكامل الأنظمة</option>
-                <option value="all">حل متكامل</option>
+                <option value="" data-i18n="form.opt0">اختر الخدمة...</option>
+                <option value="chatbot" data-i18n="form.opt1">روبوت محادثة</option>
+                <option value="automation" data-i18n="form.opt2">أتمتة سير العمل</option>
+                <option value="integration" data-i18n="form.opt3">تكامل الأنظمة</option>
+                <option value="all" data-i18n="form.opt4">حل متكامل</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="message">اخبرنا عن تحديك الأكبر</label>
-              <textarea id="message" name="message" rows="3" placeholder="ما هي المشكلة التي تريد حلها؟"></textarea>
+              <label for="message" data-i18n="form.msg">اخبرنا عن تحديك الأكبر</label>
+              <textarea id="message" name="message" rows="3" placeholder="ما هي المشكلة التي تريد حلها؟" data-i18n-ph="form.msgPh"></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-full btn-lg magnetic" id="submitBtn">
-              <span id="submitText">احجز جلستك المجانية</span>
+              <span id="submitText" data-i18n="form.submit">احجز جلستك المجانية</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
-            <p class="form-note">بإرسال هذا النموذج توافق على تواصلنا معك عبر الواتساب أو الإيميل.</p>
+            <p class="form-note" data-i18n="form.note">بإرسال هذا النموذج توافق على تواصلنا معك عبر الواتساب أو الإيميل.</p>
           </form>
 
           <!-- Success State -->
           <div class="form-success" id="formSuccess">
             <div class="success-icon"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg></div>
-            <h3>تم إرسال طلبك بنجاح!</h3>
-            <p>سيتواصل معك فريقنا خلال 24 ساعة عمل لتحديد موعد الجلسة.</p>
+            <h3 data-i18n="form.successT">تم إرسال طلبك بنجاح!</h3>
+            <p data-i18n="form.successP">سيتواصل معك فريقنا خلال 24 ساعة عمل لتحديد موعد الجلسة.</p>
           </div>
         </div>
       </div>
@@ -735,7 +776,7 @@
           <div class="footer-logo">
             <img src="assets/logo.png" alt="مجيب" class="footer-logo-img" />
           </div>
-          <p>نُمكّن الشركات العربية من أتمتة عملياتها باستخدام الذكاء الاصطناعي المُخصص.</p>
+          <p data-i18n="footer.brand">نُمكّن الشركات العربية من أتمتة عملياتها باستخدام الذكاء الاصطناعي المُخصص.</p>
           <div class="social-links">
             <a href="#" class="social-link" aria-label="WhatsApp">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.787 23.213 5.08 21.74A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.373l-.358-.213-3.721 1.196 1.167-3.625-.234-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
@@ -750,45 +791,46 @@
         </div>
 
         <div class="footer-links">
-          <h4>الخدمات</h4>
+          <h4 data-i18n="footer.services">الخدمات</h4>
           <ul>
-            <li><a href="#services">روبوتات المحادثة</a></li>
-            <li><a href="#services">أتمتة سير العمل</a></li>
-            <li><a href="#services">تكامل الأنظمة</a></li>
+            <li><a href="#services" data-i18n="footer.l1">روبوتات المحادثة</a></li>
+            <li><a href="#services" data-i18n="footer.l2">أتمتة سير العمل</a></li>
+            <li><a href="#services" data-i18n="footer.l3">تكامل الأنظمة</a></li>
           </ul>
         </div>
 
         <div class="footer-links">
-          <h4>الشركة</h4>
+          <h4 data-i18n="footer.company">الشركة</h4>
           <ul>
-            <li><a href="#why-us">من نحن</a></li>
-            <li><a href="#process">آلية العمل</a></li>
-            <li><a href="#problem">لماذا مُجيب</a></li>
-            <li><a href="#contact">تواصل معنا</a></li>
+            <li><a href="#why-us" data-i18n="footer.about">من نحن</a></li>
+            <li><a href="#process" data-i18n="nav.process">آلية العمل</a></li>
+            <li><a href="#problem" data-i18n="footer.whym">لماذا مُجيب</a></li>
+            <li><a href="#contact" data-i18n="nav.contact">تواصل معنا</a></li>
           </ul>
         </div>
 
         <div class="footer-contact">
-          <h4>تواصل مباشر</h4>
+          <h4 data-i18n="footer.direct">تواصل مباشر</h4>
           <a href="https://wa.me/962XXXXXXXXX" class="footer-wa-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.787 23.213 5.08 21.74A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.373l-.358-.213-3.721 1.196 1.167-3.625-.234-.372A9.818 9.818 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
-            تحدث معنا على واتساب
+            <span data-i18n="footer.wa">تحدث معنا على واتساب</span>
           </a>
           <p class="footer-email">info@mujeeb.ai</p>
-          <p class="footer-location"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg> نخدم السوق العربي بالكامل</p>
+          <p class="footer-location"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg> <span data-i18n="footer.region">نخدم السوق العربي بالكامل</span></p>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>© 2026 مُجيب للذكاء الاصطناعي. جميع الحقوق محفوظة.</p>
+        <p data-i18n="footer.rights">© 2026 مُجيب للذكاء الاصطناعي. جميع الحقوق محفوظة.</p>
         <div class="footer-bottom-links">
-          <a href="#">سياسة الخصوصية</a>
-          <a href="#">الشروط والأحكام</a>
+          <a href="#" data-i18n="footer.privacy">سياسة الخصوصية</a>
+          <a href="#" data-i18n="footer.terms">الشروط والأحكام</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
