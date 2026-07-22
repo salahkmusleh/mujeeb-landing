@@ -5,10 +5,13 @@
 
 /* ---- PAGE LOADER ---- */
 (function injectLoader() {
+  let savedLang = 'ar';
+  try { savedLang = localStorage.getItem('mujeeb_lang') || 'ar'; } catch (e) {}
+  const wordmark = savedLang === 'en' ? 'Mujeeb' : 'مُجيب';
   const loader = document.createElement('div');
   loader.className = 'page-loader';
   loader.innerHTML = `
-    <div class="loader-logo">مُجيب<span style="color:#C5A059">.</span></div>
+    <div class="loader-logo">${wordmark}<span style="color:#C5A059">.</span></div>
     <div class="loader-bar"><div class="loader-fill"></div></div>
   `;
   document.body.prepend(loader);
@@ -27,6 +30,15 @@
     const max = document.documentElement.scrollHeight - window.innerHeight;
     bar.style.width = ((window.scrollY / max) * 100).toFixed(2) + '%';
   }, { passive: true });
+})();
+
+/* ---- FLOATING WHATSAPP (show after hero) ---- */
+(function initWaFloat() {
+  const btn = document.getElementById('waFloat');
+  if (!btn) return;
+  const toggle = () => btn.classList.toggle('visible', window.scrollY > 500);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
 })();
 
 /* ---- GSAP SETUP ---- */
@@ -195,6 +207,8 @@ window.addEventListener('load', () => {
 /* ---- COUNTER ANIMATION ---- */
 (function initCounters() {
   const counters = document.querySelectorAll('.counter');
+  const locale = () => (window.MujeebLang && window.MujeebLang.current === 'en') ? 'en-US' : 'ar-EG';
+  const fmt = n => Math.floor(n).toLocaleString(locale());
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -208,8 +222,8 @@ window.addEventListener('load', () => {
 
       const timer = setInterval(() => {
         cur = Math.min(cur + inc, end);
-        el.textContent = Math.floor(cur).toLocaleString('ar-EG');
-        if (cur >= end) clearInterval(timer);
+        el.textContent = fmt(cur);
+        if (cur >= end) { el.dataset.done = '1'; clearInterval(timer); }
       }, step);
 
       observer.unobserve(el);
@@ -217,6 +231,15 @@ window.addEventListener('load', () => {
   }, { threshold: 0.5 });
 
   counters.forEach(c => observer.observe(c));
+
+  // Re-render finished counters in the active locale on language switch
+  if (window.MujeebLang) {
+    window.MujeebLang.onChange(() => {
+      counters.forEach(el => {
+        if (el.dataset.done === '1') el.textContent = fmt(parseInt(el.dataset.target, 10));
+      });
+    });
+  }
 })();
 
 /* ---- MAGNETIC BUTTONS ---- */
@@ -280,36 +303,69 @@ window.addEventListener('load', () => {
 
   const scenarios = {
     sales: [
-      { from: 'bot',  text: 'مرحباً! أنا مساعد متجر الأناقة. كيف أقدر أساعدك اليوم؟ 😊', delay: 800 },
-      { from: 'user', text: 'في عندكم تشكيلة عبايات جديدة؟', delay: 2000 },
-      { from: 'bot',  text: 'بالتأكيد! وصلتنا هذا الأسبوع أكثر من 40 موديل جديد للعبايات 🎉\n\nأي فئة تفضلين؟\n• عبايات كاجوال\n• عبايات سهرة\n• عبايات رسمية', delay: 3500 },
-      { from: 'user', text: 'عبايات سهرة', delay: 5500 },
-      { from: 'bot',  text: 'ممتاز! لدينا 12 موديل للسهرة بأسعار تبدأ من 89 دينار.\n\nهل تودين رؤية الكتالوج كاملاً أو تحديد مقاسك أولاً لأعرض المتوفر منها؟', delay: 7000 },
+      { from: 'bot',  delay: 800,
+        ar: 'مرحباً! أنا مساعد متجر الأناقة. كيف أقدر أساعدك اليوم؟ 😊',
+        en: "Hi! I'm Anaqa Store's assistant. How can I help you today? 😊" },
+      { from: 'user', delay: 2000,
+        ar: 'في عندكم تشكيلة عبايات جديدة؟',
+        en: 'Do you have a new abaya collection?' },
+      { from: 'bot',  delay: 3500,
+        ar: 'بالتأكيد! وصلتنا هذا الأسبوع أكثر من 40 موديل جديد للعبايات 🎉\n\nأي فئة تفضلين؟\n• عبايات كاجوال\n• عبايات سهرة\n• عبايات رسمية',
+        en: 'Absolutely! Over 40 new abaya designs arrived this week 🎉\n\nWhich category do you prefer?\n• Casual abayas\n• Evening abayas\n• Formal abayas' },
+      { from: 'user', delay: 5500,
+        ar: 'عبايات سهرة',
+        en: 'Evening abayas' },
+      { from: 'bot',  delay: 7000,
+        ar: 'ممتاز! لدينا 12 موديل للسهرة بأسعار تبدأ من 89 دينار.\n\nهل تودين رؤية الكتالوج كاملاً أو تحديد مقاسك أولاً لأعرض المتوفر منها؟',
+        en: "Great! We have 12 evening designs starting from 89 JOD.\n\nWould you like to see the full catalog, or set your size first so I show what's available?" },
     ],
     support: [
-      { from: 'bot',  text: 'أهلاً! أنا مساعد الدعم. ما المشكلة التي تواجهها؟', delay: 800 },
-      { from: 'user', text: 'طلبيتي ما وصلت وأنا دفعت قبل 5 أيام', delay: 2000 },
-      { from: 'bot',  text: 'آسف جداً على هذا التأخير! 🙏\n\nأعطني رقم الطلبية وسأتابعها فوراً معك.', delay: 3200 },
-      { from: 'user', text: 'رقم الطلبية: ORD-2024-4872', delay: 5000 },
-      { from: 'bot',  text: '✅ وجدت طلبيتك!\n\nالحالة: في طريقها إليك 🚚\nموعد التسليم المتوقع: غداً بين 10 صباحاً - 2 ظهراً\n\nهل تريد إشعاراً فورياً لحظة وصولها؟', delay: 6500 },
+      { from: 'bot',  delay: 800,
+        ar: 'أهلاً! أنا مساعد الدعم. ما المشكلة التي تواجهها؟',
+        en: "Hello! I'm the support assistant. What issue are you facing?" },
+      { from: 'user', delay: 2000,
+        ar: 'طلبيتي ما وصلت وأنا دفعت قبل 5 أيام',
+        en: "My order hasn't arrived and I paid 5 days ago" },
+      { from: 'bot',  delay: 3200,
+        ar: 'آسف جداً على هذا التأخير! 🙏\n\nأعطني رقم الطلبية وسأتابعها فوراً معك.',
+        en: "I'm so sorry for the delay! 🙏\n\nShare your order number and I'll track it for you right away." },
+      { from: 'user', delay: 5000,
+        ar: 'رقم الطلبية: ORD-2024-4872',
+        en: 'Order number: ORD-2024-4872' },
+      { from: 'bot',  delay: 6500,
+        ar: '✅ وجدت طلبيتك!\n\nالحالة: في طريقها إليك 🚚\nموعد التسليم المتوقع: غداً بين 10 صباحاً - 2 ظهراً\n\nهل تريد إشعاراً فورياً لحظة وصولها؟',
+        en: '✅ Found your order!\n\nStatus: on its way 🚚\nExpected delivery: tomorrow, 10 AM - 2 PM\n\nWant an instant notification the moment it arrives?' },
     ],
     booking: [
-      { from: 'bot',  text: 'أهلاً بك! يسعدني مساعدتك في حجز موعد. 📅\n\nأي خدمة تريد الحجز لها؟', delay: 800 },
-      { from: 'user', text: 'استشارة تسويقية', delay: 2200 },
-      { from: 'bot',  text: 'ممتاز! استشارات التسويق متاحة مع خبرائنا.\n\nأيام متاحة هذا الأسبوع:\n• الثلاثاء 9 يوليو\n• الأربعاء 10 يوليو\n• الخميس 11 يوليو\n\nأي يوم يناسبك؟', delay: 3800 },
-      { from: 'user', text: 'الأربعاء', delay: 5500 },
-      { from: 'bot',  text: '✅ تم التأكيد!\n\n📅 الأربعاء 10 يوليو\n🕙 الساعة 10:00 صباحاً\n👤 مع م. سارة الحامد\n\nسيصلك تذكير قبل ساعة من الموعد. هل تريد إضافة للتقويم؟', delay: 7200 },
+      { from: 'bot',  delay: 800,
+        ar: 'أهلاً بك! يسعدني مساعدتك في حجز موعد. 📅\n\nأي خدمة تريد الحجز لها؟',
+        en: "Welcome! I'd be happy to help you book an appointment. 📅\n\nWhich service would you like to book?" },
+      { from: 'user', delay: 2200,
+        ar: 'استشارة تسويقية',
+        en: 'Marketing consultation' },
+      { from: 'bot',  delay: 3800,
+        ar: 'ممتاز! استشارات التسويق متاحة مع خبرائنا.\n\nأيام متاحة هذا الأسبوع:\n• الثلاثاء 9 يوليو\n• الأربعاء 10 يوليو\n• الخميس 11 يوليو\n\nأي يوم يناسبك؟',
+        en: 'Great! Marketing consultations are available with our experts.\n\nOpen days this week:\n• Tuesday, July 9\n• Wednesday, July 10\n• Thursday, July 11\n\nWhich day works for you?' },
+      { from: 'user', delay: 5500,
+        ar: 'الأربعاء',
+        en: 'Wednesday' },
+      { from: 'bot',  delay: 7200,
+        ar: '✅ تم التأكيد!\n\n📅 الأربعاء 10 يوليو\n🕙 الساعة 10:00 صباحاً\n👤 مع م. سارة الحامد\n\nسيصلك تذكير قبل ساعة من الموعد. هل تريد إضافة للتقويم؟',
+        en: '✅ Confirmed!\n\n📅 Wednesday, July 10\n🕙 10:00 AM\n👤 With Eng. Sara Al-Hamed\n\nYou\'ll get a reminder an hour before. Add it to your calendar?' },
     ]
   };
 
+  const lang = () => (window.MujeebLang ? window.MujeebLang.current : 'ar');
+
   let currentScenario = 'sales';
   let isRunning = false;
+  let hasStarted = false;
   let timeouts = [];
 
   function clearTimeouts() { timeouts.forEach(clearTimeout); timeouts = []; }
 
   function now() {
-    return new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+    return new Date().toLocaleTimeString(lang() === 'en' ? 'en-US' : 'ar-EG', { hour: '2-digit', minute: '2-digit' });
   }
 
   function addTypingIndicator() {
@@ -344,6 +400,7 @@ window.addEventListener('load', () => {
   function runScenario(key) {
     if (isRunning) return;
     isRunning = true;
+    hasStarted = true;
     clearTimeouts();
 
     // Clear messages except date divider
@@ -363,7 +420,7 @@ window.addEventListener('load', () => {
       }
 
       const t = setTimeout(() => {
-        addMessage(msg.from, msg.text);
+        addMessage(msg.from, msg[lang()] || msg.ar);
         if (i === msgs.length - 1) {
           isRunning = false;
           // Loop after a pause
@@ -387,6 +444,16 @@ window.addEventListener('load', () => {
     });
   });
 
+  // Restart the conversation in the new language when toggled
+  if (window.MujeebLang) {
+    window.MujeebLang.onChange(() => {
+      if (!hasStarted) return;
+      isRunning = false;
+      clearTimeouts();
+      runScenario(currentScenario);
+    });
+  }
+
   // Start when in view
   const observer = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {
@@ -399,18 +466,20 @@ window.addEventListener('load', () => {
 })();
 
 /* ============================================================
-   GOOGLE FORMS INTEGRATION
+   LEAD FORM — Web3Forms backend
    ============================================================
 
-   HOW TO SET UP YOUR OWN GOOGLE FORM:
-   ─────────────────────────────────────
-   1. Create a Google Form at forms.google.com
-   2. Add fields matching the form below
-   3. Open the form → click the 3-dot menu → "Get pre-filled link"
-   4. Fill each field and click "Get link" — the URL shows entry.XXXXXXXXX IDs
-   5. Replace the GOOGLE_FORM_ACTION_URL and entry IDs below
-   6. Replace FIELD_IDS with your actual entry.XXXXXXXXX values
+   HOW TO RECEIVE SUBMISSIONS BY EMAIL (2 minutes, free):
+   ──────────────────────────────────────────────────────
+   1. Go to https://web3forms.com and enter the email you want
+      leads delivered to.
+   2. Copy the "Access Key" they email you.
+   3. Paste it into WEB3FORMS_ACCESS_KEY below (replace the placeholder).
+   That's it — every submission lands in your inbox. You can later
+   forward it to Google Sheets, Slack, Notion, etc. from their dashboard.
 
+   Until a real key is set, the form runs in DEMO mode: it validates and
+   shows the success message but does not send anything.
    ============================================================ */
 
 (function initContactForm() {
@@ -421,24 +490,15 @@ window.addEventListener('load', () => {
 
   if (!form) return;
 
-  // ── REPLACE THIS URL with your Google Form action URL ──────
-  // Example: 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse'
-  const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID_HERE/formResponse';
+  // ── PASTE YOUR WEB3FORMS ACCESS KEY HERE ──────────────────
+  const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+  const isConfigured = WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.startsWith('YOUR_');
 
-  // ── REPLACE these entry IDs with your actual Google Form field IDs ──
-  const FIELD_IDS = {
-    fullName: 'entry.000000001',   // Full Name field ID
-    company:  'entry.000000002',   // Company field ID
-    phone:    'entry.000000003',   // Phone field ID
-    email:    'entry.000000004',   // Email field ID
-    service:  'entry.000000005',   // Service select field ID
-    message:  'entry.000000006',   // Message field ID
-  };
+  const sendingText = () => (window.MujeebLang && window.MujeebLang.t('form.sending')) || 'جارٍ الإرسال...';
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Validate
     const data = new FormData(form);
     const fullName = data.get('fullName')?.trim();
     const phone    = data.get('phone')?.trim();
@@ -451,36 +511,44 @@ window.addEventListener('load', () => {
 
     // Loading state
     submitBtn.disabled = true;
-    submitTxt.textContent = 'جارٍ الإرسال...';
+    submitTxt.textContent = sendingText();
     submitBtn.style.opacity = '0.7';
 
-    // Build form body for Google Forms
-    const body = new URLSearchParams();
-    body.append(FIELD_IDS.fullName, fullName);
-    body.append(FIELD_IDS.company,  data.get('company') || '');
-    body.append(FIELD_IDS.phone,    phone);
-    body.append(FIELD_IDS.email,    email);
-    body.append(FIELD_IDS.service,  data.get('service') || '');
-    body.append(FIELD_IDS.message,  data.get('message') || '');
-
-    try {
-      // Google Forms doesn't support CORS, so we use no-cors.
-      // The request succeeds but returns an opaque response — that's expected.
-      await fetch(GOOGLE_FORM_ACTION_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body.toString(),
-      });
-    } catch (_) {
-      // no-cors fetch will throw on network failure only; opaque is fine
+    if (isConfigured) {
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: 'عميل جديد من موقع مُجيب / New lead from Mujeeb',
+            from_name: 'Mujeeb Landing Page',
+            'الاسم / Name': fullName,
+            'الشركة / Company': data.get('company') || '—',
+            'الهاتف / Phone': phone,
+            'البريد / Email': email,
+            'الخدمة / Service': data.get('service') || '—',
+            'الرسالة / Message': data.get('message') || '—',
+          }),
+        });
+        const json = await res.json();
+        if (!json.success) throw new Error(json.message || 'submit failed');
+      } catch (err) {
+        // Restore the form and let the user retry
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitTxt.textContent = form.dataset.retry ||
+          ((window.MujeebLang && window.MujeebLang.current === 'en')
+            ? 'Something went wrong — try again'
+            : 'حدث خطأ ما — حاول مرة أخرى');
+        return;
+      }
     }
 
-    // Show success regardless (Google Forms always accepts valid submissions)
+    // Success
     form.style.display = 'none';
     success.classList.add('visible');
 
-    // GSAP success animation
     gsap.from('.form-success > *', {
       opacity: 0,
       y: 20,
@@ -504,6 +572,36 @@ window.addEventListener('load', () => {
         el.style.borderColor = '#e05a4e';
         el.addEventListener('input', () => el.style.borderColor = '', { once: true });
       }
+    });
+  }
+})();
+
+/* ---- FAQ ACCORDION ---- */
+(function initFaq() {
+  const items = document.querySelectorAll('.faq-item');
+  items.forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      // close others
+      items.forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = null;
+        other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+        q.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  // Re-measure the open item after a language switch (text length changes)
+  if (window.MujeebLang) {
+    window.MujeebLang.onChange(() => {
+      const open = document.querySelector('.faq-item.open .faq-a');
+      if (open) open.style.maxHeight = open.scrollHeight + 'px';
     });
   }
 })();
