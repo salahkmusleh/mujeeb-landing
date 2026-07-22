@@ -8,7 +8,7 @@
   const EN = {
     // Nav
     'nav.services': 'Services', 'nav.demo': 'Live Demo', 'nav.why': 'Why Us',
-    'nav.process': 'How It Works', 'nav.pricing': 'Pricing', 'nav.contact': 'Contact',
+    'nav.process': 'How It Works', 'nav.pricing': 'Pricing', 'nav.faq': 'FAQ', 'nav.contact': 'Contact',
     'cta.start': 'Get Started',
 
     // Hero
@@ -142,6 +142,26 @@
     // Marquee
     'mq1': 'Smart AI Chatbots', 'mq2': 'Workflow Automation', 'mq3': 'WhatsApp Integration', 'mq4': 'Full Arabic Support',
     'mq5': 'Advanced Analytics', 'mq6': 'Two-week Delivery', 'mq7': 'Money-back Guarantee', 'mq8': 'AI Automation',
+
+    // FAQ
+    'faq.tag': 'FAQ',
+    'faq.title': 'Everything you <span class="gradient-text">need to know</span>',
+    'faq.sub': 'Straight answers to what our clients ask most before getting started.',
+    'faq.q1': 'How long does it take to launch the bot?',
+    'faq.a1': 'From the discovery session to full launch in 10–14 business days on average, depending on the complexity of the project.',
+    'faq.q2': 'Does the bot understand local dialects?',
+    'faq.a2': 'Yes — it\'s trained on Gulf, Levantine, and Egyptian dialects, and it understands context, not just keywords.',
+    'faq.q3': 'Which platforms does it work on?',
+    'faq.a3': 'WhatsApp, Instagram, Messenger, and your website — all from a single dashboard.',
+    'faq.q4': 'Do I need technical experience?',
+    'faq.a4': 'Not at all. We handle setup, training, and integration end-to-end and hand you a ready-to-run solution.',
+    'faq.q5': "What if the bot doesn't know the answer?",
+    'faq.a5': 'It hands the conversation to your team smoothly with full context, so no customer is ever lost.',
+    'faq.q6': 'Is my data secure?',
+    'faq.a6': 'Yes. We follow enterprise-grade security, your data stays fully yours, and it is never used to train public models.',
+
+    // Floating WhatsApp
+    'wa.float': 'Chat with us on WhatsApp',
 
     // Document
     'meta.title': 'Mujeeb — AI Business Automation',

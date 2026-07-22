@@ -32,6 +32,15 @@
   }, { passive: true });
 })();
 
+/* ---- FLOATING WHATSAPP (show after hero) ---- */
+(function initWaFloat() {
+  const btn = document.getElementById('waFloat');
+  if (!btn) return;
+  const toggle = () => btn.classList.toggle('visible', window.scrollY > 500);
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+})();
+
 /* ---- GSAP SETUP ---- */
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
@@ -457,18 +466,20 @@ window.addEventListener('load', () => {
 })();
 
 /* ============================================================
-   GOOGLE FORMS INTEGRATION
+   LEAD FORM — Web3Forms backend
    ============================================================
 
-   HOW TO SET UP YOUR OWN GOOGLE FORM:
-   ─────────────────────────────────────
-   1. Create a Google Form at forms.google.com
-   2. Add fields matching the form below
-   3. Open the form → click the 3-dot menu → "Get pre-filled link"
-   4. Fill each field and click "Get link" — the URL shows entry.XXXXXXXXX IDs
-   5. Replace the GOOGLE_FORM_ACTION_URL and entry IDs below
-   6. Replace FIELD_IDS with your actual entry.XXXXXXXXX values
+   HOW TO RECEIVE SUBMISSIONS BY EMAIL (2 minutes, free):
+   ──────────────────────────────────────────────────────
+   1. Go to https://web3forms.com and enter the email you want
+      leads delivered to.
+   2. Copy the "Access Key" they email you.
+   3. Paste it into WEB3FORMS_ACCESS_KEY below (replace the placeholder).
+   That's it — every submission lands in your inbox. You can later
+   forward it to Google Sheets, Slack, Notion, etc. from their dashboard.
 
+   Until a real key is set, the form runs in DEMO mode: it validates and
+   shows the success message but does not send anything.
    ============================================================ */
 
 (function initContactForm() {
@@ -479,24 +490,15 @@ window.addEventListener('load', () => {
 
   if (!form) return;
 
-  // ── REPLACE THIS URL with your Google Form action URL ──────
-  // Example: 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse'
-  const GOOGLE_FORM_ACTION_URL = 'https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_ID_HERE/formResponse';
+  // ── PASTE YOUR WEB3FORMS ACCESS KEY HERE ──────────────────
+  const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';
+  const isConfigured = WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.startsWith('YOUR_');
 
-  // ── REPLACE these entry IDs with your actual Google Form field IDs ──
-  const FIELD_IDS = {
-    fullName: 'entry.000000001',   // Full Name field ID
-    company:  'entry.000000002',   // Company field ID
-    phone:    'entry.000000003',   // Phone field ID
-    email:    'entry.000000004',   // Email field ID
-    service:  'entry.000000005',   // Service select field ID
-    message:  'entry.000000006',   // Message field ID
-  };
+  const sendingText = () => (window.MujeebLang && window.MujeebLang.t('form.sending')) || 'جارٍ الإرسال...';
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Validate
     const data = new FormData(form);
     const fullName = data.get('fullName')?.trim();
     const phone    = data.get('phone')?.trim();
@@ -509,36 +511,44 @@ window.addEventListener('load', () => {
 
     // Loading state
     submitBtn.disabled = true;
-    submitTxt.textContent = (window.MujeebLang && window.MujeebLang.t('form.sending')) || 'جارٍ الإرسال...';
+    submitTxt.textContent = sendingText();
     submitBtn.style.opacity = '0.7';
 
-    // Build form body for Google Forms
-    const body = new URLSearchParams();
-    body.append(FIELD_IDS.fullName, fullName);
-    body.append(FIELD_IDS.company,  data.get('company') || '');
-    body.append(FIELD_IDS.phone,    phone);
-    body.append(FIELD_IDS.email,    email);
-    body.append(FIELD_IDS.service,  data.get('service') || '');
-    body.append(FIELD_IDS.message,  data.get('message') || '');
-
-    try {
-      // Google Forms doesn't support CORS, so we use no-cors.
-      // The request succeeds but returns an opaque response — that's expected.
-      await fetch(GOOGLE_FORM_ACTION_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body.toString(),
-      });
-    } catch (_) {
-      // no-cors fetch will throw on network failure only; opaque is fine
+    if (isConfigured) {
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({
+            access_key: WEB3FORMS_ACCESS_KEY,
+            subject: 'عميل جديد من موقع مُجيب / New lead from Mujeeb',
+            from_name: 'Mujeeb Landing Page',
+            'الاسم / Name': fullName,
+            'الشركة / Company': data.get('company') || '—',
+            'الهاتف / Phone': phone,
+            'البريد / Email': email,
+            'الخدمة / Service': data.get('service') || '—',
+            'الرسالة / Message': data.get('message') || '—',
+          }),
+        });
+        const json = await res.json();
+        if (!json.success) throw new Error(json.message || 'submit failed');
+      } catch (err) {
+        // Restore the form and let the user retry
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitTxt.textContent = form.dataset.retry ||
+          ((window.MujeebLang && window.MujeebLang.current === 'en')
+            ? 'Something went wrong — try again'
+            : 'حدث خطأ ما — حاول مرة أخرى');
+        return;
+      }
     }
 
-    // Show success regardless (Google Forms always accepts valid submissions)
+    // Success
     form.style.display = 'none';
     success.classList.add('visible');
 
-    // GSAP success animation
     gsap.from('.form-success > *', {
       opacity: 0,
       y: 20,
@@ -562,6 +572,36 @@ window.addEventListener('load', () => {
         el.style.borderColor = '#e05a4e';
         el.addEventListener('input', () => el.style.borderColor = '', { once: true });
       }
+    });
+  }
+})();
+
+/* ---- FAQ ACCORDION ---- */
+(function initFaq() {
+  const items = document.querySelectorAll('.faq-item');
+  items.forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      // close others
+      items.forEach(other => {
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = null;
+        other.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+        q.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  // Re-measure the open item after a language switch (text length changes)
+  if (window.MujeebLang) {
+    window.MujeebLang.onChange(() => {
+      const open = document.querySelector('.faq-item.open .faq-a');
+      if (open) open.style.maxHeight = open.scrollHeight + 'px';
     });
   }
 })();

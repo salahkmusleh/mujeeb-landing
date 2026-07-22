@@ -1330,6 +1330,58 @@ input, textarea, select { font-family: inherit; }
 .step-duration svg { flex-shrink: 0; }
 
 
+/* ---------- FAQ ---------- */
+.faq-section { background: transparent; }
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.faq-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: border-color 0.3s, background 0.3s;
+}
+.faq-item.open { border-color: rgba(197,160,89,0.3); background: var(--bg-card-hover); }
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 24px;
+  text-align: start;
+  color: var(--text);
+  font-family: var(--font-ar);
+  font-size: 1.05rem;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+.faq-q:hover { color: var(--secondary); }
+.faq-icon {
+  flex-shrink: 0;
+  color: var(--secondary);
+  display: flex;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.faq-item.open .faq-icon { transform: rotate(180deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.faq-a p {
+  padding: 0 24px 22px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
 /* ---------- CONTACT / FORM ---------- */
 .contact-bg-glow {
   position: absolute;
@@ -1513,6 +1565,67 @@ input, textarea, select { font-family: inherit; }
 .footer-bottom-links { display: flex; gap: 20px; }
 .footer-bottom-links a { font-size: 0.82rem; color: var(--text-faint); transition: color 0.2s; }
 .footer-bottom-links a:hover { color: var(--text); }
+
+/* ---------- FLOATING WHATSAPP ---------- */
+.wa-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 30px rgba(37,211,102,0.4), 0 4px 12px rgba(0,0,0,0.35);
+  z-index: 900;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: opacity 0.4s, transform 0.4s, visibility 0.4s, box-shadow 0.3s;
+}
+.wa-float.visible { opacity: 1; visibility: visible; transform: none; }
+.wa-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25d366;
+  z-index: -1;
+  animation: waPulse 2.6s ease-out infinite;
+}
+@keyframes waPulse {
+  0%   { transform: scale(1); opacity: 0.5; }
+  70%, 100% { transform: scale(1.9); opacity: 0; }
+}
+.wa-float:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 12px 40px rgba(37,211,102,0.55), 0 4px 14px rgba(0,0,0,0.4);
+}
+.wa-float-tip {
+  position: absolute;
+  right: 70px;
+  background: rgba(13,24,16,0.96);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity 0.3s, transform 0.3s;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+.wa-float:hover .wa-float-tip { opacity: 1; transform: none; }
+@media (max-width: 600px) {
+  .wa-float { width: 52px; height: 52px; bottom: 18px; right: 18px; }
+  .wa-float-tip { display: none; }
+}
 
 /* ---------- SCROLL PROGRESS BAR ---------- */
 .scroll-progress-bar {
